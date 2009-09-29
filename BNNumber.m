@@ -84,9 +84,8 @@
 }
 
 - (id)initWithString:(NSString *)string {
-	NSCharacterSet * hexSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"];
-	NSRange nonHexChar = [string rangeOfCharacterFromSet:[hexSet invertedSet]];
-	if (nonHexChar.location != NSNotFound) { [self release]; return nil; }
+	NSRange nonDecChar = [string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
+	if (nonDecChar.location != NSNotFound) { [self release]; return nil; }
 	if (self = [self init]) {
 		BN_dec2bn(&bignum, [string cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
@@ -94,7 +93,9 @@
 }
 
 - (id)initWithHexString:(NSString *)string {
-	
+	NSCharacterSet * hexSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"];
+	NSRange nonHexChar = [string rangeOfCharacterFromSet:[hexSet invertedSet]];
+	if (nonHexChar.location != NSNotFound) { [self release]; return nil; }
 	if (self = [self init]) {
 		BN_hex2bn(&bignum, [string cStringUsingEncoding:NSUTF8StringEncoding]);
 	}

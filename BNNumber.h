@@ -54,6 +54,7 @@
 - (NSInteger)compareTo:(id)object;
 
 #pragma mark Mathematical Operations
+
 - (BNNumber *)numberByModding:(BNNumber *)mod;
 - (BNNumber *)numberByInverseModding:(BNNumber *)mod;
 
