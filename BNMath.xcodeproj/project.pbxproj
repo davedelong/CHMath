@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		555090F2107178C5005D2440 /* BNMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090F1107178C5005D2440 /* BNMath.h */; };
+		555090FE10717924005D2440 /* BNNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090FC10717924005D2440 /* BNNumber.h */; };
+		555090FF10717924005D2440 /* BNNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555090FD10717924005D2440 /* BNNumber.m */; };
+		5550910C10718347005D2440 /* BNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5550910A10718347005D2440 /* BNUtils.h */; };
+		5550910D10718347005D2440 /* BNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5550910B10718347005D2440 /* BNUtils.m */; };
+		5550911A1071846C005D2440 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 555091191071846C005D2440 /* libcrypto.dylib */; };
+		555091631071A88E005D2440 /* BNMutableNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555091611071A88E005D2440 /* BNMutableNumber.h */; };
+		555091641071A88E005D2440 /* BNMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091621071A88E005D2440 /* BNMutableNumber.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -17,6 +25,14 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* BNMath_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMath_Prefix.pch; sourceTree = "<group>"; };
+		555090F1107178C5005D2440 /* BNMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMath.h; sourceTree = "<group>"; };
+		555090FC10717924005D2440 /* BNNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNNumber.h; sourceTree = "<group>"; };
+		555090FD10717924005D2440 /* BNNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNNumber.m; sourceTree = "<group>"; };
+		5550910A10718347005D2440 /* BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUtils.h; sourceTree = "<group>"; };
+		5550910B10718347005D2440 /* BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtils.m; sourceTree = "<group>"; };
+		555091191071846C005D2440 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		555091611071A88E005D2440 /* BNMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMutableNumber.h; sourceTree = "<group>"; };
+		555091621071A88E005D2440 /* BNMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNMutableNumber.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* BNMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -28,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				5550911A1071846C005D2440 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +67,7 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				555091191071846C005D2440 /* libcrypto.dylib */,
 			);
 			name = BNMath;
 			sourceTree = "<group>";
@@ -75,6 +93,13 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				555090F1107178C5005D2440 /* BNMath.h */,
+				5550910A10718347005D2440 /* BNUtils.h */,
+				5550910B10718347005D2440 /* BNUtils.m */,
+				555090FC10717924005D2440 /* BNNumber.h */,
+				555090FD10717924005D2440 /* BNNumber.m */,
+				555091611071A88E005D2440 /* BNMutableNumber.h */,
+				555091621071A88E005D2440 /* BNMutableNumber.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -112,6 +137,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555090F2107178C5005D2440 /* BNMath.h in Headers */,
+				555090FE10717924005D2440 /* BNNumber.h in Headers */,
+				5550910C10718347005D2440 /* BNUtils.h in Headers */,
+				555091631071A88E005D2440 /* BNMutableNumber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555090FF10717924005D2440 /* BNNumber.m in Sources */,
+				5550910D10718347005D2440 /* BNUtils.m in Sources */,
+				555091641071A88E005D2440 /* BNMutableNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
