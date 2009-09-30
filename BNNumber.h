@@ -33,6 +33,7 @@
 
 #pragma mark Behavior
 
+- (NSString *)binaryStringValue;
 - (NSString *)hexStringValue;
 - (NSString *)stringValue;
 - (NSArray *)factors;
@@ -42,6 +43,7 @@
 - (BOOL)isZero;
 - (BOOL)isOne;
 - (BOOL)isNegative;
+- (BOOL)isPositive;
 - (BOOL)isPrime;
 - (BOOL)isOdd;
 - (BOOL)isEven;
@@ -64,10 +66,10 @@
 - (BNNumber *)numberBySubtracting:(BNNumber *)subtrahend;
 - (BNNumber *)numberBySubtracting:(BNNumber *)subtrahend mod:(BNNumber *)mod;
 
-- (BNNumber *)numberByMultiplingWith:(BNNumber *)multiplicand;
-- (BNNumber *)numberByMultiplingWith:(BNNumber *)multiplicand mod:(BNNumber *)mod;
+- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand;
+- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand mod:(BNNumber *)mod;
 
-- (BNNumber *)numberByDividingWith:(BNNumber *)divisor;
+- (BNNumber *)numberByDividingBy:(BNNumber *)divisor;
 
 - (BNNumber *)numberBySquaring;
 - (BNNumber *)numberBySquaringMod:(BNNumber *)mod;

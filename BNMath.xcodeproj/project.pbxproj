@@ -19,6 +19,7 @@
 		555091B81071CE24005D2440 /* BNMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BNMath.framework */; };
 		555091BE1071CF6D005D2440 /* BNNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091991071CCEF005D2440 /* BNNumberTest.m */; };
 		555091C21071CF90005D2440 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		555093D01073E3F0005D2440 /* BNMutableNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		555091901071CCD8005D2440 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		555091981071CCEF005D2440 /* BNNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNNumberTest.h; sourceTree = "<group>"; };
 		555091991071CCEF005D2440 /* BNNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNNumberTest.m; sourceTree = "<group>"; };
+		555093CE1073E3F0005D2440 /* BNMutableNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMutableNumberTest.h; sourceTree = "<group>"; };
+		555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNMutableNumberTest.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* BNMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -163,6 +166,8 @@
 			children = (
 				555091981071CCEF005D2440 /* BNNumberTest.h */,
 				555091991071CCEF005D2440 /* BNNumberTest.m */,
+				555093CE1073E3F0005D2440 /* BNMutableNumberTest.h */,
+				555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555091BE1071CF6D005D2440 /* BNNumberTest.m in Sources */,
+				555093D01073E3F0005D2440 /* BNMutableNumberTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +368,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -375,6 +382,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

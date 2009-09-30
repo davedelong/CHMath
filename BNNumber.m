@@ -149,6 +149,18 @@
 	return [NSString stringWithCString:BN_bn2hex([self bignum]) encoding:NSUTF8StringEncoding];
 }
 
+- (NSString *)binaryStringValue {
+	NSUInteger numBytes = BN_num_bytes([self bignum]);
+	unsigned char * string = malloc(numBytes * sizeof(unsigned char));
+	int len = BN_bn2bin([self bignum], string);
+	for (int i = 0; i < len; ++i) {
+		NSLog(@"%c", string[i]);
+	}
+	NSString * binaryString = [[NSString alloc] initWithBytesNoCopy:string length:len encoding:NSASCIIStringEncoding freeWhenDone:YES];
+	NSLog(@"Bin: %@", binaryString);
+	return [binaryString autorelease];
+}
+
 - (NSString *)description {
 	return [self stringValue];
 }
@@ -169,6 +181,10 @@
 
 - (BOOL)isNegative {
 	return [self isLessThanNumber:[BNNumber number]];
+}
+
+- (BOOL)isPositive {
+	return ![self isNegative];
 }
 
 - (BOOL)isPrime {
@@ -231,7 +247,7 @@
 	for (BNNumber * prime in primes) {
 		while([[copy numberByModding:prime] isZero]) {
 			[factors addObject:prime];
-			copy = [copy numberByDividingWith:prime];
+			copy = [copy numberByDividingBy:prime];
 		}
 		if ([copy isOne]) { break; }
 	}
@@ -278,19 +294,19 @@
 	return result;
 }
 
-- (BNNumber *)numberByMultiplingWith:(BNNumber *)multiplicand {
+- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand {
 	BNNumber * result = [BNNumber number];
 	BN_mul([result bignum], [self bignum], [multiplicand bignum], ctx);
 	return result;
 }
 
-- (BNNumber *)numberByMultiplingWith:(BNNumber *)multiplicand mod:(BNNumber *)mod {
+- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand mod:(BNNumber *)mod {
 	BNNumber * result = [BNNumber number];
 	BN_mod_mul([result bignum], [self bignum], [multiplicand bignum], [mod bignum], ctx);
 	return result;
 }
 
-- (BNNumber *)numberByDividingWith:(BNNumber *)divisor {
+- (BNNumber *)numberByDividingBy:(BNNumber *)divisor {
 	BNNumber * result = [BNNumber number];
 	BN_div([result bignum], NULL, [self bignum], [divisor bignum], ctx);
 	return result;
