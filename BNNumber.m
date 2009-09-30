@@ -8,14 +8,10 @@
 
 #import "BNNumber.h"
 #import "BNUtils.h"
-
-@interface BNNumber ()
-
-@end
-
-
+#import "BNNumber_Private.h"
 
 @implementation BNNumber
+
 @synthesize bignum;
 
 + (id)numberWithInteger:(NSInteger)integer {
@@ -159,6 +155,16 @@
 	NSString * binaryString = [[NSString alloc] initWithBytesNoCopy:string length:len encoding:NSASCIIStringEncoding freeWhenDone:YES];
 	NSLog(@"Bin: %@", binaryString);
 	return [binaryString autorelease];
+}
+
+- (NSInteger)integerValue {
+	NSInteger value = BN_get_word([self bignum]);
+	if ([self isNegative]) { value *= -1; }
+	return value;
+}
+
+- (NSUInteger)unsignedIntegerValue {
+	return (NSUInteger)BN_get_word([self bignum]);
 }
 
 - (NSString *)description {
@@ -312,13 +318,13 @@
 	return result;
 }
 
-- (BNNumber *)numberBySquaring {
+- (BNNumber *)squaredNumber {
 	BNNumber * result = [BNNumber number];
 	BN_sqr([result bignum], [self bignum], ctx);
 	return result;
 }
 
-- (BNNumber *)numberBySquaringMod:(BNNumber *)mod {
+- (BNNumber *)squaredNumberMod:(BNNumber *)mod {
 	BNNumber * result = [BNNumber number];
 	BN_mod_sqr([result bignum], [self bignum], [mod bignum], ctx);
 	return result;
@@ -334,6 +340,12 @@
 	BNNumber * result = [BNNumber number];
 	BN_mod_exp([result bignum], [self bignum], [exponent bignum], [mod bignum], ctx);
 	return result;
+}
+
+- (BNNumber *)negatedNumber {
+	BNNumber * result = [self copy];
+	BN_set_negative([result bignum], ![self isNegative]);
+	return [result autorelease];
 }
 
 #pragma mark Bitfield Operations

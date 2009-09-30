@@ -14,8 +14,6 @@
 	BN_CTX *ctx;
 }
 
-@property(readonly) BIGNUM * bignum;
-
 #pragma mark Initializers
 
 + (id)number;
@@ -36,6 +34,8 @@
 - (NSString *)binaryStringValue;
 - (NSString *)hexStringValue;
 - (NSString *)stringValue;
+- (NSInteger)integerValue;
+- (NSUInteger)unsignedIntegerValue;
 - (NSArray *)factors;
 
 #pragma mark Comparisons
@@ -71,11 +71,13 @@
 
 - (BNNumber *)numberByDividingBy:(BNNumber *)divisor;
 
-- (BNNumber *)numberBySquaring;
-- (BNNumber *)numberBySquaringMod:(BNNumber *)mod;
+- (BNNumber *)squaredNumber;
+- (BNNumber *)squaredNumberMod:(BNNumber *)mod;
 
 - (BNNumber *)numberByRaisingToPower:(BNNumber *)exponent;
 - (BNNumber *)numberByRaisingToPower:(BNNumber *)exponent mod:(BNNumber *)mod;
+
+- (BNNumber *)negatedNumber;
 
 #pragma mark Bitfield Operations
 

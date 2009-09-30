@@ -8,9 +8,11 @@
 
 #import "BNUtils.h"
 #import "BNNumber.h"
+#import "BNNumber_Private.h"
 #import <openssl/bn.h>
 
 static NSMutableSet * cachedPrimes;
+
 
 @implementation BNUtils
 
@@ -30,6 +32,8 @@ static NSMutableSet * cachedPrimes;
 
 + (NSArray *)primesUpTo:(BNNumber *)number {
 	BNNumber * two = [BNNumber numberWithInteger:2];
+	if ([number isLessThanNumber:two]) { return [NSArray array]; }
+	
 	NSMutableArray * primes = [NSMutableArray arrayWithObject:two];
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	BNNumber * potentialPrime = [BNNumber numberWithInteger:3];

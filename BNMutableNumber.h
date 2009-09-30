@@ -38,11 +38,13 @@
 - (void)raiseToNumber:(BNNumber *)exponent mod:(BNNumber *)mod;
 
 - (void)square;
+- (void)squareMod:(BNNumber *)mod;
 
 - (void)negate;
 
 - (void)setBit:(NSUInteger)bit;
 - (void)clearBit:(NSUInteger)bit;
+- (void)flipBit:(NSUInteger)bit;
 - (void)shiftLeftOnce;
 - (void)shiftLeft:(NSUInteger)leftShift;
 - (void)shiftRightOnce;

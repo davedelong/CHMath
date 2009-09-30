@@ -7,7 +7,7 @@
 //
 
 #import "BNMutableNumber.h"
-
+#import "BNNumber_Private.h"
 
 @implementation BNMutableNumber
 
@@ -100,6 +100,10 @@
 	BN_sqr([self bignum], [self bignum], ctx);
 }
 
+- (void)squareMod:(BNNumber *)mod {
+	BN_mod_sqr([self bignum], [self bignum], [mod bignum], ctx);
+}
+
 - (void)negate {
 	BN_set_negative([self bignum], ![self isNegative]);
 }
@@ -110,6 +114,14 @@
 
 - (void)clearBit:(NSUInteger)bit {
 	BN_clear_bit([self bignum], bit);
+}
+
+- (void)flipBit:(NSUInteger)bit {
+	if ([self isBitSet:bit]) {
+		[self clearBit:bit];
+	} else {
+		[self setBit:bit];
+	}
 }
 
 - (void)shiftLeftOnce {

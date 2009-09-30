@@ -8,15 +8,6 @@
 
 #import "BNNumberTest.h"
 
-#define ASSERTTRUE(expr,obj,sel) { \
-STAssertTrue(expr, [NSString stringWithFormat:@"-[%@ %@] failed (%@)", [obj className], sel, obj]); \
-}
-
-#define ASSERTFALSE(expr,obj,sel) { \
-STAssertFalse(expr, [NSString stringWithFormat:@"-[%@ %@] failed (%@)", [obj className], sel, obj]); \
-}
-
-
 @implementation BNNumberTest
 
 - (void) setUp {
@@ -230,17 +221,15 @@ STAssertFalse(expr, [NSString stringWithFormat:@"-[%@ %@] failed (%@)", [obj cla
 }
 
 - (void) test_modularDivision {
-	BNNumber * n1 = [BNNumber numberWithInteger:42];
+	BNNumber * n = [BNNumber numberWithInteger:42];
 	BNNumber * m = [BNNumber numberWithInteger:5];
-	BNNumber * r = [BNNumber numberWithInteger:2];
 	
-	BNNumber * result = [n1 numberByModding:m];
-	ASSERTTRUE([result isEqualToNumber:r], result, @"numberByModding:");
+	BNNumber * r = [n numberByModding:m];
+	ASSERTTRUE([r integerValue] == 2, r, @"numberByModding:");
 	
-	r = [BNNumber numberWithInteger:3];
-	result = [n1 numberByInverseModding:m];
+	r = [n numberByInverseModding:m];
 	//(42 * result) % 5 == 1
-	ASSERTTRUE([result isEqualToNumber:r], result, @"numberByInverseModding:");
+	ASSERTTRUE([r integerValue] == 3, r, @"numberByInverseModding:");
 }
 
 - (void) test_addition {
@@ -249,81 +238,80 @@ STAssertFalse(expr, [NSString stringWithFormat:@"-[%@ %@] failed (%@)", [obj cla
 	BNNumber * three = [BNNumber numberWithInteger:3];
 	
 	BNNumber * r = [one numberByAdding:two];
-	ASSERTTRUE([r isEqualToNumber:three], r, @"numberByAdding:");
+	ASSERTTRUE([r integerValue] == 3, r, @"numberByAdding:");
 	
 	BNNumber * ten = [BNNumber numberWithInteger:10];
 	r = [ten numberByAdding:three mod:two];
-	ASSERTTRUE([r isEqualToNumber:one], r, @"numberByAdding:mod:");
+	ASSERTTRUE([r integerValue] == 1, r, @"numberByAdding:mod:");
 }
 
 - (void) test_subtraction {
-	BNNumber * one = [BNNumber numberWithInteger:1];
 	BNNumber * two = [BNNumber numberWithInteger:2];
 	BNNumber * three = [BNNumber numberWithInteger:3];
 	
 	BNNumber * r = [three numberBySubtracting:two];
-	ASSERTTRUE([r isEqualToNumber:one], r, @"numberBySubtracting:");
+	ASSERTTRUE([r integerValue] == 1, r, @"numberBySubtracting:");
 	
 	BNNumber * ten = [BNNumber numberWithInteger:10];
 	r = [ten numberBySubtracting:three mod:two];
-	ASSERTTRUE([r isEqualToNumber:one], r, @"numberBySubtracting:mod:");
+	ASSERTTRUE([r integerValue] == 1, r, @"numberBySubtracting:mod:");
 }
 
 - (void) test_multiplication {
 	BNNumber * three = [BNNumber numberWithInteger:3];
 	BNNumber * seven = [BNNumber numberWithInteger:7];
-	BNNumber * twentyone = [BNNumber numberWithInteger:21];
 	
 	BNNumber * r = [three numberByMultiplyingBy:seven];
-	ASSERTTRUE([r isEqualToNumber:twentyone], r, @"numberByMultiplyingBy:");
+	ASSERTTRUE([r integerValue] == 21, r, @"numberByMultiplyingBy:");
 	
 	BNNumber * two = [BNNumber numberWithInteger:2];
-	BNNumber * one = [BNNumber numberWithInteger:1];
 	
 	r = [three numberByMultiplyingBy:seven mod:two];
-	ASSERTTRUE([r isEqualToNumber:one], r, @"numberByMultiplyingBy:mod:");	
+	ASSERTTRUE([r integerValue] == 1, r, @"numberByMultiplyingBy:mod:");	
 }
 
 - (void) test_division {
 	BNNumber * twentyone = [BNNumber numberWithInteger:21];
 	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * seven = [BNNumber numberWithInteger:7];
 	
 	BNNumber * r = [twentyone numberByDividingBy:three];
-	ASSERTTRUE([r isEqualToNumber:seven], r, @"numberByDividingBy:");
+	ASSERTTRUE([r integerValue] == 7, r, @"numberByDividingBy:");
 	
 	//division is integer division, and results are rounded down
 	BNNumber * four = [BNNumber numberWithInteger:4];
-	BNNumber * five = [BNNumber numberWithInteger:5];
 	r = [twentyone numberByDividingBy:four];
-	ASSERTTRUE([r isEqualToNumber:five], r, @"numberByDividingBy:");
+	ASSERTTRUE([r integerValue] == 5, r, @"numberByDividingBy:");
 }
 
 - (void) test_squaring {
 	BNNumber * two = [BNNumber numberWithInteger:2];
-	BNNumber * four = [BNNumber numberWithInteger:4];
 	
-	BNNumber * r = [two numberBySquaring];
-	ASSERTTRUE([r isEqualToNumber:four], r, @"numberBySquaring");
+	BNNumber * r = [two squaredNumber];
+	ASSERTTRUE([r integerValue] == 4, r, @"squaredNumber");
 	
 	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
 	
-	r = [two numberBySquaringMod:three];
-	ASSERTTRUE([r isEqualToNumber:one], r, @"numberBySquaringMod:");
+	r = [two squaredNumberMod:three];
+	ASSERTTRUE([r integerValue] == 1, r, @"squaredNumberMod:");
 }
 
 - (void) test_exponents {
 	BNNumber * two = [BNNumber numberWithInteger:2];
 	BNNumber * five = [BNNumber numberWithInteger:5];
-	BNNumber * thirtytwo = [BNNumber numberWithInteger:32];
 	
 	BNNumber * r = [two numberByRaisingToPower:five];
-	ASSERTTRUE([r isEqualToNumber:thirtytwo], r, @"numberByRaisingToPower:");
+	ASSERTTRUE([r integerValue] == 32, r, @"numberByRaisingToPower:");
 	
 	BNNumber * three = [BNNumber numberWithInteger:3];
 	r = [two numberByRaisingToPower:five mod:three];
-	ASSERTTRUE([r isEqualToNumber:two], r, @"numberByRaisingToPower:mod:");
+	ASSERTTRUE([r integerValue] == 2, r, @"numberByRaisingToPower:mod:");
+}
+
+- (void) test_negation {
+	BNNumber * n = [BNNumber numberWithInteger:42];
+	
+	BNNumber * r = [n negatedNumber];
+	ASSERTTRUE([r integerValue] == -42, r, @"negatedNumber");
 }
 
 - (void) test_bitSet {
@@ -337,45 +325,29 @@ STAssertFalse(expr, [NSString stringWithFormat:@"-[%@ %@] failed (%@)", [obj cla
 
 - (void) test_bitShiftLeft {
 	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * six = [BNNumber numberWithInteger:6];
 	
 	BNNumber * r = [three numberByShiftingLeftOnce];
-	ASSERTTRUE([r isEqualToNumber:six], r, @"numberByShiftingLeftOnce");
-	
-	BNNumber * twentyfour = [BNNumber numberWithInteger:24];
+	ASSERTTRUE([r integerValue] == 6, r, @"numberByShiftingLeftOnce");
 	
 	r = [three numberByShiftingLeft:3];
-	ASSERTTRUE([r isEqualToNumber:twentyfour], r, @"numberByShiftingLeft:");
+	ASSERTTRUE([r integerValue] == 24, r, @"numberByShiftingLeft:");
 }
 
 - (void) test_bitShiftRight {
 	BNNumber * twentyfour = [BNNumber numberWithInteger:24];
-	BNNumber * twelve = [BNNumber numberWithInteger:12];
 	
 	BNNumber * r = [twentyfour numberByShiftingRightOnce];
-	ASSERTTRUE([r isEqualToNumber:twelve], r, @"numberByShiftingRightOnce");
-	
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	ASSERTTRUE([r integerValue] == 12, r, @"numberByShiftingRightOnce");
 	
 	r = [twentyfour numberByShiftingRight:3];
-	ASSERTTRUE([r isEqualToNumber:three], r, @"numberByShiftingRight:");	
+	ASSERTTRUE([r integerValue] == 3, r, @"numberByShiftingRight:");	
 }
 
 - (void) test_bitMasking {
 	BNNumber * thirteen = [BNNumber numberWithInteger:13];
 	
 	BNNumber * r = [thirteen numberByMaskingWithInteger:3];
-	BNNumber * five = [BNNumber numberWithInteger:5];
-	ASSERTTRUE([r isEqualToNumber:five], r, @"numberByMaskingWithInteger:");
-	
-	
-	NSUInteger t = 13 & ~((~0)>>3);
-	NSLog(@"%llu", t);
-//	01101 
-//	00011
-//	a&=~((~0)>>n)
-//	01101 & ~1111
-	NSLog(@"%@", r);
+	ASSERTTRUE([r integerValue] == 5, r, @"numberByMaskingWithInteger:");
 }
 
 @end

@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 #import "BNNumber.h"
+#import "BNMutableNumber.h"
 #import "BNUtils.h"
