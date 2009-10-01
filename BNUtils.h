@@ -13,6 +13,13 @@
 
 }
 
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits;
++ (BNNumber *)generateSafePrimeOfLength:(NSUInteger)numBits;
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits add:(BNNumber *)add remainder:(BNNumber *)rem;
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits add:(BNNumber *)add remainder:(BNNumber *)rem;
+
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits safe:(BOOL)safe add:(BNNumber *)add remainder:(BNNumber *)rem;
+
 + (BNNumber *)greatestCommonDivisorOf:(BNNumber *)first and:(BNNumber *)second;
 + (NSArray *)primesUpTo:(BNNumber *)number;
 

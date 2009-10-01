@@ -21,30 +21,37 @@
 - (void) test01_construction {
 	BNNumber * n = [BNNumber number];
 	STAssertNotNil(n, @"+[BNNumber number] failed");
+	STAssertTrue([n integerValue] == 0, @"+[BNNumber number] failed (%@)", n);
 	
 	n = [BNNumber numberWithHexString:@"abc"];
 	STAssertNotNil(n, @"+[BNNumber numberWithHexString:] failed");
+	STAssertTrue([n integerValue] == 2748, @"+[BNNumber numberWithHexString:] failed (%@)", n);
 	
 	n = [BNNumber numberWithHexString:@"xyz"];
 	STAssertNil(n, @"+[BNNumber numberWithHexString:] failed validation");
 	
 	n = [BNNumber numberWithInteger:-42];
 	STAssertNotNil(n, @"+[BNNumber numberWithInteger:] failed");
+	STAssertTrue([n integerValue] == -42, @"+[BNNumber numberWithInteger:] failed (%@)", n);
 	
 	n = [BNNumber numberWithNumber:[NSNumber numberWithInteger:42]];
 	STAssertNotNil(n, @"+[BNNumber numberWithNumber:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithInteger:] failed (%@)", n);
 	
 	n = [BNNumber numberWithString:@"42"];
 	STAssertNotNil(n, @"+[BNNumber numberWithString:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithString:] failed (%@)", n);
 	
 	n = [BNNumber numberWithString:@"١٣٨"];
 	STAssertNotNil(n, @"+[BNNumber numberWithString:] failed (Arabic)");
+	STAssertTrue([n integerValue] == 138, @"+[BNNumber numberWithString:] failed (Arabic %@)", n);
 	
 	n = [BNNumber numberWithString:@"abc"];
 	STAssertNil(n, @"+[BNNumber numberWithString:] failed validation");
 	
 	n = [BNNumber numberWithUnsignedInteger:42];
 	STAssertNotNil(n, @"+[BNNumber numberWithUnsignedInteger:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithUnsignedInteger:] failed (%@)", n);
 }
 
 - (void) test02_stringValues {

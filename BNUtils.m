@@ -10,16 +10,42 @@
 #import "BNNumber.h"
 #import "BNNumber_Private.h"
 #import <openssl/bn.h>
+#import <openssl/rand.h>
 
 static NSMutableSet * cachedPrimes;
 
 
 @implementation BNUtils
 
-+ (void) initialize {
++ (void)initialize {
 	@synchronized(self) {
 		cachedPrimes = [[NSMutableSet alloc] init];
+		NSFileHandle * random = [NSFileHandle fileHandleForReadingAtPath:@"/dev/urandom"];
+		NSData * buffer = [random readDataOfLength:512];
+		RAND_seed([buffer bytes], [buffer length]);
 	}
+}
+
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits safe:(BOOL)safe add:(BNNumber *)add remainder:(BNNumber *)rem {
+	BNNumber * result = [BNNumber number];
+	BN_generate_prime([result bignum], numBits, safe, [add bignum], [rem bignum], NULL, NULL);
+	return result;
+}
+
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits {
+	return [BNUtils generatePrimeOfLength:numBits safe:NO add:nil remainder:nil];
+}
+
++ (BNNumber *)generateSafePrimeOfLength:(NSUInteger)numBits {
+	return [BNUtils generatePrimeOfLength:numBits safe:YES add:nil remainder:nil];
+}
+
++ (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits add:(BNNumber *)add remainder:(BNNumber *)rem {
+	return [BNUtils generatePrimeOfLength:numBits safe:NO add:add remainder:rem];
+}
+
++ (BNNumber *)generateSafePrimeOfLength:(NSUInteger)numBits add:(BNNumber *)add remainder:(BNNumber *)rem {
+	return [BNUtils generatePrimeOfLength:numBits safe:YES add:add remainder:rem];
 }
 
 + (BNNumber *)greatestCommonDivisorOf:(BNNumber *)first and:(BNNumber *)second {
