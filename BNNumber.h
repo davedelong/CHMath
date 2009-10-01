@@ -10,8 +10,8 @@
 #import <openssl/bn.h>
 
 @interface BNNumber : NSObject <NSCoding, NSCopying> {
-	BIGNUM *bignum;
-	BN_CTX *ctx;
+	BIGNUM *bigNumber;
+	BN_CTX *context;
 }
 
 #pragma mark Initializers

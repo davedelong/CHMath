@@ -8,6 +8,6 @@
 
 @interface BNNumber (PRIVATE)
 
-@property(readonly) BIGNUM * bignum;
+@property(readonly) BIGNUM * bigNumber;
 
 @end

@@ -28,7 +28,7 @@ static NSMutableSet * cachedPrimes;
 
 + (BNNumber *)generatePrimeOfLength:(NSUInteger)numBits safe:(BOOL)safe add:(BNNumber *)add remainder:(BNNumber *)rem {
 	BNNumber * result = [BNNumber number];
-	BN_generate_prime([result bignum], numBits, safe, [add bignum], [rem bignum], NULL, NULL);
+	BN_generate_prime([result bigNumber], numBits, safe, [add bigNumber], [rem bigNumber], NULL, NULL);
 	return result;
 }
 
@@ -51,7 +51,7 @@ static NSMutableSet * cachedPrimes;
 + (BNNumber *)greatestCommonDivisorOf:(BNNumber *)first and:(BNNumber *)second {
 	BNNumber * result = [BNNumber number];
 	BN_CTX * ctx = BN_CTX_new();
-	BN_gcd([result bignum], [first bignum], [second bignum], ctx);
+	BN_gcd([result bigNumber], [first bigNumber], [second bigNumber], ctx);
 	BN_CTX_free(ctx);
 	return result;
 }

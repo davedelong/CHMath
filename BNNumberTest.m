@@ -58,12 +58,15 @@
 	BNNumber * n = [BNNumber numberWithInteger:42];
 	ASSERTTRUE([[n stringValue] isEqual:@"42"], n, @"stringValue");
 	ASSERTTRUE([[n hexStringValue] isEqual:@"2A"], n, @"hexStringValue");
-	ASSERTTRUE([[n binaryStringValue] isEqual:@"101010"], n, @"binaryStringValue");
+	NSString * binary = [n binaryStringValue];
+	NSString * exp = @"0101010";
+	NSLog(@"%d =? %d", [binary length], [exp length]);
+	ASSERTTRUE([binary isEqual:exp], n, @"binaryStringValue");
 	
 	n = [BNNumber numberWithInteger:-42];
 	ASSERTTRUE([[n stringValue] isEqual:@"-42"], n, @"stringValue");
 	ASSERTTRUE([[n hexStringValue] isEqual:@"-2A"], n, @"hexStringValue");
-	ASSERTTRUE([[n binaryStringValue] isEqual:@"11010110"], n, @"binaryStringValue");
+	ASSERTTRUE([[n binaryStringValue] isEqual:@"1010110"], n, @"binaryStringValue");
 }
 
 - (void) test_factorization {
