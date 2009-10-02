@@ -82,16 +82,11 @@
 }
 
 - (id)initWithString:(NSString *)string {
-	NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-	[f setNumberStyle:NSNumberFormatterDecimalStyle];
-	NSNumber * n = [f numberFromString:string];
-	[f release];
-	if (n == nil) { [self release]; return nil; }
+	NSCharacterSet * decSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+	NSRange nonDecChar = [string rangeOfCharacterFromSet:[decSet invertedSet]];
+	if (nonDecChar.location != NSNotFound) { [self release]; return nil; }
 	if (self = [self init]) {
-		NSLocale * decimalLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-		NSString * decimalString = [n descriptionWithLocale:decimalLocale];
-		[decimalLocale release];
-		BN_dec2bn(&bigNumber, [decimalString cStringUsingEncoding:NSUTF8StringEncoding]);
+		BN_dec2bn(&bigNumber, [string cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	return self;
 }

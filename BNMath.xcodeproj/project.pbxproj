@@ -15,7 +15,6 @@
 		5550911A1071846C005D2440 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 555091191071846C005D2440 /* libcrypto.dylib */; };
 		555091631071A88E005D2440 /* BNMutableNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555091611071A88E005D2440 /* BNMutableNumber.h */; };
 		555091641071A88E005D2440 /* BNMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091621071A88E005D2440 /* BNMutableNumber.m */; };
-		5550919A1071CCEF005D2440 /* BNNumberTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 555091981071CCEF005D2440 /* BNNumberTest.h */; };
 		555091B81071CE24005D2440 /* BNMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BNMath.framework */; };
 		555091BE1071CF6D005D2440 /* BNNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091991071CCEF005D2440 /* BNNumberTest.m */; };
 		555091C21071CF90005D2440 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
@@ -189,10 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				555090F2107178C5005D2440 /* BNMath.h in Headers */,
-				555090FE10717924005D2440 /* BNNumber.h in Headers */,
 				5550910C10718347005D2440 /* BNUtils.h in Headers */,
+				555090FE10717924005D2440 /* BNNumber.h in Headers */,
 				555091631071A88E005D2440 /* BNMutableNumber.h in Headers */,
-				5550919A1071CCEF005D2440 /* BNNumberTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

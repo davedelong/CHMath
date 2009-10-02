@@ -42,10 +42,6 @@
 	STAssertNotNil(n, @"+[BNNumber numberWithString:] failed");
 	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithString:] failed (%@)", n);
 	
-	n = [BNNumber numberWithString:@"١٣٨"];
-	STAssertNotNil(n, @"+[BNNumber numberWithString:] failed (Arabic)");
-	STAssertTrue([n integerValue] == 138, @"+[BNNumber numberWithString:] failed (Arabic %@)", n);
-	
 	n = [BNNumber numberWithString:@"abc"];
 	STAssertNil(n, @"+[BNNumber numberWithString:] failed validation");
 	
