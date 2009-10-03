@@ -1,0 +1,216 @@
+<tagfile>
+
+  <!-- Foundation classes & protocols -->
+  <compound kind="class">
+    <name>CFDictionary</name>
+    <filename>http://developer.apple.com/documentation/CoreFoundation/Reference/CFDictionaryRef/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>CFMutableDictionary</name>
+    <filename>http://developer.apple.com/documentation/CoreFoundation/Reference/CFMutableDictionaryRef/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSArray</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSBundle</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSCoder</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSCoder_Class/Reference/NSCoder.html</filename>
+  </compound>
+  <compound kind="protocol">
+    <name>NSCoding</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Protocols/NSCoding_Protocol/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>initWithCoder:</name>
+      <anchor>//apple_ref/occ/intfm/NSCoding/initWithCoder:</anchor>
+    </member>
+    <member kind="function">
+      <name>encodeWithCoder:</name>
+      <anchor>//apple_ref/occ/intfm/NSCoding/encodeWithCoder:</anchor>
+    </member>
+  </compound>
+  <compound kind="protocol">
+    <name>NSCopying</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Protocols/NSCopying_Protocol/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>copyWithZone:</name>
+      <anchor>//apple_ref/occ/intfm/NSCopying/copyWithZone:</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSData</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSDate</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSDecimalNumber</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSDecimalNumber_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSDictionary</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSDictionary_Class/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>allKeys</name>
+      <anchor>//apple_ref/occ/instm/NSDictionary/allKeys</anchor>
+    </member>
+    <member kind="function">
+      <name>allKeysForObject:</name>
+      <anchor>//apple_ref/occ/instm/NSDictionary/allKeysForObject:</anchor>
+    </member>
+    <member kind="function">
+      <name>allValues</name>
+      <anchor>//apple_ref/occ/instm/NSDictionary/allValues</anchor>
+    </member>
+    <member kind="function">
+      <name>containsKey:</name>
+      <anchor>//apple_ref/occ/instm/NSDictionary/containsKey:</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSEnumerator</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSEnumerator_Class/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>allObjects</name>
+      <anchor>//apple_ref/occ/instm/NSEnumerator/allObjects</anchor>
+    </member>
+    <member kind="function">
+      <name>nextObject</name>
+      <anchor>//apple_ref/occ/instm/NSEnumerator/nextObject</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSError</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSException</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSException_Class/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>raise:format:</name>
+      <anchor>//apple_ref/occ/clm/NSException/raise:format:</anchor>
+    </member>
+  </compound>
+  <compound kind="protocol">
+    <name>NSFastEnumeration</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/NSFastEnumeration_protocol/Reference/NSFastEnumeration.html</filename>
+    <!-- Submitted feedback on the non-standard lowercase "p" in the URL -->
+  </compound>
+  <compound kind="class">
+    <name>NSGarbageCollector</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/NSGarbageCollector_class/Introduction/Introduction.html</filename>
+    <member kind="function">
+      <name>collectIfNeeded</name>
+      <anchor>//apple_ref/occ/instm/NSGarbageCollector/collectIfNeeded</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSLock</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSLock_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="protocol">
+    <name>NSLocking</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Protocols/NSLocking_Protocol/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>lock</name>
+      <anchor>//apple_ref/occ/intfm/NSLocking/lock</anchor>
+    </member>
+    <member kind="function">
+      <name>unlock</name>
+      <anchor>//apple_ref/occ/intfm/NSLocking/unlock</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSMutableArray</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSMutableArray_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="protocol">
+    <name>NSMutableCopying</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Protocols/NSMutableCopying_Protocol/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSMutableDictionary</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSMutableDictionary_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSMutableSet</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSMutableSet_Class/Reference/NSMutableSet.html</filename>
+    <member kind="function">
+      <name>addObject:</name>
+      <anchor>//apple_ref/occ/instm/NSMutableSet/addObject:</anchor>
+    </member>
+    <member kind="function">
+      <name>setSet:</name>
+      <anchor>//apple_ref/occ/instm/NSMutableSet/setSet:</anchor>
+    </member>
+    <member kind="function">
+      <name>unionSet:</name>
+      <anchor>//apple_ref/occ/instm/NSMutableSet/unionSet:</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSNotification</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSNotification_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSNumber</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSNumber_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSObject</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html</filename>
+    <member kind="function">
+      <name>copy</name>
+      <anchor>//apple_ref/occ/instm/NSObject/copy</anchor>
+    </member>
+  </compound>
+  <compound kind="protocol">
+    <name>NSObject</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Protocols/NSObject_Protocol/Reference/NSObject.html</filename>
+    <member kind="function">
+      <name>isEqual:</name>
+      <anchor>//apple_ref/occ/intfm/NSObject/isEqual:</anchor>
+    </member>
+    <member kind="function">
+      <name>hash</name>
+      <anchor>//apple_ref/occ/intfm/NSObject/hash</anchor>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>NSRecursiveLock</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSRecursiveLock_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSPredicate</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSPredicate_Class/Reference/NSPredicate.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSSet</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSSet_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSSortDescriptor</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSSortDescriptor_Class/Reference/Reference.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSString</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>NSView</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSView_Class/Reference/NSView.html</filename>
+  </compound>
+  
+  <!-- AppKit classes & protocols -->
+  <compound kind="class">
+    <name>NSCell</name>
+    <filename>http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/nscell_Class/Reference/NSCell.html</filename>
+  </compound>
+  
+</tagfile>
