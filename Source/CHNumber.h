@@ -216,32 +216,133 @@
  */
 - (CHNumber *)numberByInverseModding:(CHNumber *)mod;
 
+/**
+ Perform addition.
+ @param addend the number to add to the receiver
+ @return a new CHNumber
+ */
 - (CHNumber *)numberByAdding:(CHNumber *)addend;
+
+/**
+ Perform modulo addition.
+ @param addend the number to add to the receiver
+ @param mod the number to divide by
+ @return a new CHNumber @a r such that @c (r = (receiver + addend) % mod)
+ */
 - (CHNumber *)numberByAdding:(CHNumber *)addend mod:(CHNumber *)mod;
 
+/**
+ Perform subtraction.
+ @param subtrahend the number to subtract from the receiver
+ @return a new CHNumber
+ */
 - (CHNumber *)numberBySubtracting:(CHNumber *)subtrahend;
+
+/**
+ Perform modulo subtraction.
+ @param subtrahend the number to subtract from the receiver
+ @param mod the number to divide by
+ @return a new CHNumber @a r such that @c (r = (receiver - subtrahend) % mod)
+ */
 - (CHNumber *)numberBySubtracting:(CHNumber *)subtrahend mod:(CHNumber *)mod;
 
+/**
+ Perform multiplication.
+ @param multiplicand the number by which to multiply the receiver
+ @return a new CHNumber
+ */
 - (CHNumber *)numberByMultiplyingBy:(CHNumber *)multiplicand;
+
+/**
+ Perform modulo multiplication.
+ @param multiplicand the number by which to multiply the receiver
+ @param mod the number to divide by
+ @return a new CHNumber @a r such that @c (r = (receiver * multiplicand) % mod)
+ */
 - (CHNumber *)numberByMultiplyingBy:(CHNumber *)multiplicand mod:(CHNumber *)mod;
 
+/**
+ Perform division.
+ @param divisor the number by which to divide the receiver
+ @return a new CHNumber
+ */
 - (CHNumber *)numberByDividingBy:(CHNumber *)divisor;
 
+/**
+ Square the receiver.
+ @return a new CHNumber @a r such that @c (r = receiver * receiver)
+ */
 - (CHNumber *)squaredNumber;
+
+/**
+ Modulo square the receiver.
+ @param mod the number to divide by
+ @return a new CHNumber @a r such that @c (r = (receiver * receiver) % mod)
+ */
 - (CHNumber *)squaredNumberMod:(CHNumber *)mod;
 
+/**
+ Raise the receiver to a power.
+ @param exponent the power by which to raise the receiver
+ @return a new CHNumber @a r such that @c (r = receiver ^ exponent)
+ */
 - (CHNumber *)numberByRaisingToPower:(CHNumber *)exponent;
+
+/**
+ Modulo raise the receiver to a power.
+ @param exponent the power by which to raise the receiver
+ @param mod the number to divide by
+ @return a new CHNumber @a r such that @c (r = (receiver ^ exponent) % mod)
+ */
 - (CHNumber *)numberByRaisingToPower:(CHNumber *)exponent mod:(CHNumber *)mod;
 
+/**
+ Negate the receiver.
+ @return a new CHNumber @a r such that @c (r = receiver * -1)
+ */
 - (CHNumber *)negatedNumber;
 
 #pragma mark Bitfield Operations
 
+/**
+ Determine if a bit is set.
+ @note the least significant bit of the receiver is the zeroth (0) bit
+ @param bit an NSUInteger
+ @return @c YES if the bit is set, @c NO otherwise.
+ */
 - (BOOL)isBitSet:(NSUInteger)bit;
+
+/**
+ Perform a single left shift
+ @return a new CHNumber @a r such that @c (r = receiver << 1)
+ */
 - (CHNumber *)numberByShiftingLeftOnce;
+
+/**
+ Perform a left shift
+ @param leftShift the number of bits to shift left
+ @return a new CHNumber @a r such that @c (r = receiver << leftShift)
+ */
 - (CHNumber *)numberByShiftingLeft:(NSUInteger)leftShift;
+
+/**
+ Perform a single right shift
+ @return a new CHNumber @a r such that @c (r = receiver >> 1)
+ */
 - (CHNumber *)numberByShiftingRightOnce;
+
+/**
+ Perform a right shift
+ @param rightShift the number of bits to shift right
+ @return a new CHNumber @a r such that @c (r = receiver >> rightShift)
+ */
 - (CHNumber *)numberByShiftingRight:(NSUInteger)rightShift;
+
+/**
+ Mask the receiver
+ @warning I do not know how this function works
+ @return a new CHNumber @a r such that @c (r = receiver << 1)
+ */
 - (CHNumber *)numberByMaskingWithInteger:(NSUInteger)mask;
 
 @end

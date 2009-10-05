@@ -225,9 +225,9 @@
 	CHNumber * three = [CHNumber numberWithInteger:3];
 	CHNumber * one = [CHNumber numberWithInteger:1];
 	
-	ASSERTTRUE([n1 compareTo:n2] == NSOrderedSame, n1, @"compareTo:");
-	ASSERTTRUE([n1 compareTo:one] == NSOrderedDescending, n1, @"compareTo:");
-	ASSERTTRUE([n1 compareTo:three] == NSOrderedAscending, n1, @"compareTo:");
+	ASSERTTRUE([n1 compare:n2] == NSOrderedSame, n1, @"compareTo:");
+	ASSERTTRUE([n1 compare:one] == NSOrderedDescending, n1, @"compareTo:");
+	ASSERTTRUE([n1 compare:three] == NSOrderedAscending, n1, @"compareTo:");
 }
 
 - (void) test_modularDivision {
