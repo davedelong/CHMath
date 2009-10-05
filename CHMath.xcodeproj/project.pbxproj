@@ -18,6 +18,19 @@
 			name = Documentation;
 			productName = Documentation;
 		};
+		55D6E1BA107A837800A32177 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 55D6E1C7107A838600A32177 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				55D6E1BE107A837C00A32177 /* PBXTargetDependency */,
+				55D6E1C0107A837C00A32177 /* PBXTargetDependency */,
+				55D6E1C2107A837C00A32177 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -47,6 +60,27 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = CHMath;
 		};
+		55D6E1BD107A837C00A32177 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* CHMath */;
+			remoteInfo = CHMath;
+		};
+		55D6E1BF107A837C00A32177 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5550918E1071CCD8005D2440 /* Tests */;
+			remoteInfo = Tests;
+		};
+		55D6E1C1107A837C00A32177 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5550980E10769432005D2440 /* Documentation */;
+			remoteInfo = Documentation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,24 +102,24 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* CHMath_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMath_Prefix.pch; path = Source/CHMath_Prefix.pch; sourceTree = "<group>"; };
-		555090F1107178C5005D2440 /* CHMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMath.h; path = Source/CHMath.h; sourceTree = "<group>"; };
-		555090FC10717924005D2440 /* CHNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumber.h; path = Source/CHNumber.h; sourceTree = "<group>"; };
-		555090FD10717924005D2440 /* CHNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHNumber.m; path = Source/CHNumber.m; sourceTree = "<group>"; };
-		5550910A10718347005D2440 /* CHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHUtils.h; path = Source/CHUtils.h; sourceTree = "<group>"; };
-		5550910B10718347005D2440 /* CHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHUtils.m; path = Source/CHUtils.m; sourceTree = "<group>"; };
+		555090F1107178C5005D2440 /* CHMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMath.h; sourceTree = "<group>"; };
+		555090FC10717924005D2440 /* CHNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNumber.h; sourceTree = "<group>"; };
+		555090FD10717924005D2440 /* CHNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNumber.m; sourceTree = "<group>"; };
+		5550910A10718347005D2440 /* CHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUtils.h; sourceTree = "<group>"; };
+		5550910B10718347005D2440 /* CHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUtils.m; sourceTree = "<group>"; };
 		555091191071846C005D2440 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		555091611071A88E005D2440 /* CHMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMutableNumber.h; path = Source/CHMutableNumber.h; sourceTree = "<group>"; };
-		555091621071A88E005D2440 /* CHMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMutableNumber.m; path = Source/CHMutableNumber.m; sourceTree = "<group>"; };
+		555091611071A88E005D2440 /* CHMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMutableNumber.h; sourceTree = "<group>"; };
+		555091621071A88E005D2440 /* CHMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMutableNumber.m; sourceTree = "<group>"; };
 		5550918F1071CCD8005D2440 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		555091901071CCD8005D2440 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tests-Info.plist"; path = "Tests/Tests-Info.plist"; sourceTree = "<group>"; };
-		555091981071CCEF005D2440 /* CHNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumberTest.h; path = Tests/CHNumberTest.h; sourceTree = "<group>"; };
-		555091991071CCEF005D2440 /* CHNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHNumberTest.m; path = Tests/CHNumberTest.m; sourceTree = "<group>"; };
-		555093CE1073E3F0005D2440 /* CHMutableNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMutableNumberTest.h; path = Tests/CHMutableNumberTest.h; sourceTree = "<group>"; };
-		555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMutableNumberTest.m; path = Tests/CHMutableNumberTest.m; sourceTree = "<group>"; };
-		555093DA1073ED1D005D2440 /* CHTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTestUtils.h; path = Tests/CHTestUtils.h; sourceTree = "<group>"; };
-		555094491073F881005D2440 /* CHUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHUtilsTest.h; path = Tests/CHUtilsTest.h; sourceTree = "<group>"; };
-		5550944A1073F881005D2440 /* CHUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHUtilsTest.m; path = Tests/CHUtilsTest.m; sourceTree = "<group>"; };
-		555094561073F914005D2440 /* CHNumber_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumber_Private.h; path = Source/CHNumber_Private.h; sourceTree = "<group>"; };
+		555091981071CCEF005D2440 /* CHNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNumberTest.h; sourceTree = "<group>"; };
+		555091991071CCEF005D2440 /* CHNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNumberTest.m; sourceTree = "<group>"; };
+		555093CE1073E3F0005D2440 /* CHMutableNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMutableNumberTest.h; sourceTree = "<group>"; };
+		555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMutableNumberTest.m; sourceTree = "<group>"; };
+		555093DA1073ED1D005D2440 /* CHTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTestUtils.h; sourceTree = "<group>"; };
+		555094491073F881005D2440 /* CHUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUtilsTest.h; sourceTree = "<group>"; };
+		5550944A1073F881005D2440 /* CHUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUtilsTest.m; sourceTree = "<group>"; };
+		555094561073F914005D2440 /* CHNumber_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNumber_Private.h; sourceTree = "<group>"; };
 		555098B81077D897005D2440 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		555098B91077D897005D2440 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
@@ -126,8 +160,8 @@
 		0867D691FE84028FC02AAC07 /* CHMath */ = {
 			isa = PBXGroup;
 			children = (
-				08FB77AEFE84172EC02AAC07 /* Classes */,
-				5550919D1071CCF3005D2440 /* Unit Tests */,
+				08FB77AEFE84172EC02AAC07 /* Source */,
+				5550919D1071CCF3005D2440 /* Tests */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
@@ -156,7 +190,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+		08FB77AEFE84172EC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				555090F1107178C5005D2440 /* CHMath.h */,
@@ -170,7 +204,7 @@
 				555091611071A88E005D2440 /* CHMutableNumber.h */,
 				555091621071A88E005D2440 /* CHMutableNumber.m */,
 			);
-			name = Classes;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
@@ -199,7 +233,7 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		5550919D1071CCF3005D2440 /* Unit Tests */ = {
+		5550919D1071CCF3005D2440 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				555093DA1073ED1D005D2440 /* CHTestUtils.h */,
@@ -210,7 +244,7 @@
 				555093CE1073E3F0005D2440 /* CHMutableNumberTest.h */,
 				555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */,
 			);
-			name = "Unit Tests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +319,7 @@
 				8DC2EF4F0486A6940098B216 /* CHMath */,
 				5550918E1071CCD8005D2440 /* Tests */,
 				5550980E10769432005D2440 /* Documentation */,
+				55D6E1BA107A837800A32177 /* All */,
 			);
 		};
 /* End PBXProject section */
@@ -365,6 +400,21 @@
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* CHMath */;
 			targetProxy = 555091941071CCDC005D2440 /* PBXContainerItemProxy */;
+		};
+		55D6E1BE107A837C00A32177 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* CHMath */;
+			targetProxy = 55D6E1BD107A837C00A32177 /* PBXContainerItemProxy */;
+		};
+		55D6E1C0107A837C00A32177 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5550918E1071CCD8005D2440 /* Tests */;
+			targetProxy = 55D6E1BF107A837C00A32177 /* PBXContainerItemProxy */;
+		};
+		55D6E1C2107A837C00A32177 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5550980E10769432005D2440 /* Documentation */;
+			targetProxy = 55D6E1C1107A837C00A32177 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -522,6 +572,27 @@
 			};
 			name = Release;
 		};
+		55D6E1BB107A837800A32177 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		55D6E1BC107A837800A32177 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,6 +628,15 @@
 			buildConfigurations = (
 				5550980F10769432005D2440 /* Debug */,
 				5550981010769432005D2440 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55D6E1C7107A838600A32177 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D6E1BB107A837800A32177 /* Debug */,
+				55D6E1BC107A837800A32177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

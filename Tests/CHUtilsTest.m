@@ -6,7 +6,7 @@
 //  Copyright 2009 Home. All rights reserved.
 //
 
-#import "CHTestUtils.h"
+#import "CHUtilsTest.h"
 
 @implementation CHUtilsTest
 
