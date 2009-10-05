@@ -6,20 +6,36 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		5550980E10769432005D2440 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5550981B1076944A005D2440 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				5550980D10769432005D2440 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		555090F2107178C5005D2440 /* BNMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090F1107178C5005D2440 /* BNMath.h */; };
-		555090FE10717924005D2440 /* BNNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090FC10717924005D2440 /* BNNumber.h */; };
-		555090FF10717924005D2440 /* BNNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555090FD10717924005D2440 /* BNNumber.m */; };
-		5550910C10718347005D2440 /* BNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5550910A10718347005D2440 /* BNUtils.h */; };
-		5550910D10718347005D2440 /* BNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5550910B10718347005D2440 /* BNUtils.m */; };
+		555090F2107178C5005D2440 /* CHMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090F1107178C5005D2440 /* CHMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		555090FE10717924005D2440 /* CHNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555090FC10717924005D2440 /* CHNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		555090FF10717924005D2440 /* CHNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555090FD10717924005D2440 /* CHNumber.m */; };
+		5550910C10718347005D2440 /* CHUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5550910A10718347005D2440 /* CHUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5550910D10718347005D2440 /* CHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5550910B10718347005D2440 /* CHUtils.m */; };
 		5550911A1071846C005D2440 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 555091191071846C005D2440 /* libcrypto.dylib */; };
-		555091631071A88E005D2440 /* BNMutableNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555091611071A88E005D2440 /* BNMutableNumber.h */; };
-		555091641071A88E005D2440 /* BNMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091621071A88E005D2440 /* BNMutableNumber.m */; };
-		555091B81071CE24005D2440 /* BNMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* BNMath.framework */; };
-		555091BE1071CF6D005D2440 /* BNNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091991071CCEF005D2440 /* BNNumberTest.m */; };
+		555091631071A88E005D2440 /* CHMutableNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 555091611071A88E005D2440 /* CHMutableNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		555091641071A88E005D2440 /* CHMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091621071A88E005D2440 /* CHMutableNumber.m */; };
+		555091B81071CE24005D2440 /* CHMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CHMath.framework */; };
+		555091BE1071CF6D005D2440 /* CHNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555091991071CCEF005D2440 /* CHNumberTest.m */; };
 		555091C21071CF90005D2440 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
-		555093D01073E3F0005D2440 /* BNMutableNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */; };
-		5550944B1073F881005D2440 /* BNUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5550944A1073F881005D2440 /* BNUtilsTest.m */; };
+		555093D01073E3F0005D2440 /* CHMutableNumberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */; };
+		5550944B1073F881005D2440 /* CHUtilsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5550944A1073F881005D2440 /* CHUtilsTest.m */; };
+		555096DB1075BC29005D2440 /* CHMath.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CHMath.framework */; };
+		555098BA1077D897005D2440 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 555098B91077D897005D2440 /* Utils.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -29,36 +45,51 @@
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = BNMath;
+			remoteInfo = CHMath;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		555096DC1075BC48005D2440 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Library/Frameworks";
+			dstSubfolderSpec = 0;
+			files = (
+				555096DB1075BC29005D2440 /* CHMath.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		32DBCF5E0370ADEE00C91783 /* BNMath_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNMath_Prefix.pch; path = Source/BNMath_Prefix.pch; sourceTree = "<group>"; };
-		555090F1107178C5005D2440 /* BNMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNMath.h; path = Source/BNMath.h; sourceTree = "<group>"; };
-		555090FC10717924005D2440 /* BNNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNNumber.h; path = Source/BNNumber.h; sourceTree = "<group>"; };
-		555090FD10717924005D2440 /* BNNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNNumber.m; path = Source/BNNumber.m; sourceTree = "<group>"; };
-		5550910A10718347005D2440 /* BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNUtils.h; path = Source/BNUtils.h; sourceTree = "<group>"; };
-		5550910B10718347005D2440 /* BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNUtils.m; path = Source/BNUtils.m; sourceTree = "<group>"; };
+		32DBCF5E0370ADEE00C91783 /* CHMath_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMath_Prefix.pch; path = Source/CHMath_Prefix.pch; sourceTree = "<group>"; };
+		555090F1107178C5005D2440 /* CHMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMath.h; path = Source/CHMath.h; sourceTree = "<group>"; };
+		555090FC10717924005D2440 /* CHNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumber.h; path = Source/CHNumber.h; sourceTree = "<group>"; };
+		555090FD10717924005D2440 /* CHNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHNumber.m; path = Source/CHNumber.m; sourceTree = "<group>"; };
+		5550910A10718347005D2440 /* CHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHUtils.h; path = Source/CHUtils.h; sourceTree = "<group>"; };
+		5550910B10718347005D2440 /* CHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHUtils.m; path = Source/CHUtils.m; sourceTree = "<group>"; };
 		555091191071846C005D2440 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		555091611071A88E005D2440 /* BNMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNMutableNumber.h; path = Source/BNMutableNumber.h; sourceTree = "<group>"; };
-		555091621071A88E005D2440 /* BNMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNMutableNumber.m; path = Source/BNMutableNumber.m; sourceTree = "<group>"; };
+		555091611071A88E005D2440 /* CHMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMutableNumber.h; path = Source/CHMutableNumber.h; sourceTree = "<group>"; };
+		555091621071A88E005D2440 /* CHMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMutableNumber.m; path = Source/CHMutableNumber.m; sourceTree = "<group>"; };
 		5550918F1071CCD8005D2440 /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		555091901071CCD8005D2440 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Tests-Info.plist"; path = "Tests/Tests-Info.plist"; sourceTree = "<group>"; };
-		555091981071CCEF005D2440 /* BNNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNNumberTest.h; path = Tests/BNNumberTest.h; sourceTree = "<group>"; };
-		555091991071CCEF005D2440 /* BNNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNNumberTest.m; path = Tests/BNNumberTest.m; sourceTree = "<group>"; };
-		555093CE1073E3F0005D2440 /* BNMutableNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNMutableNumberTest.h; path = Tests/BNMutableNumberTest.h; sourceTree = "<group>"; };
-		555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNMutableNumberTest.m; path = Tests/BNMutableNumberTest.m; sourceTree = "<group>"; };
-		555093DA1073ED1D005D2440 /* BNTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNTestUtils.h; path = Tests/BNTestUtils.h; sourceTree = "<group>"; };
-		555094491073F881005D2440 /* BNUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNUtilsTest.h; path = Tests/BNUtilsTest.h; sourceTree = "<group>"; };
-		5550944A1073F881005D2440 /* BNUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNUtilsTest.m; path = Tests/BNUtilsTest.m; sourceTree = "<group>"; };
-		555094561073F914005D2440 /* BNNumber_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNNumber_Private.h; path = Source/BNNumber_Private.h; sourceTree = "<group>"; };
+		555091981071CCEF005D2440 /* CHNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumberTest.h; path = Tests/CHNumberTest.h; sourceTree = "<group>"; };
+		555091991071CCEF005D2440 /* CHNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHNumberTest.m; path = Tests/CHNumberTest.m; sourceTree = "<group>"; };
+		555093CE1073E3F0005D2440 /* CHMutableNumberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMutableNumberTest.h; path = Tests/CHMutableNumberTest.h; sourceTree = "<group>"; };
+		555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMutableNumberTest.m; path = Tests/CHMutableNumberTest.m; sourceTree = "<group>"; };
+		555093DA1073ED1D005D2440 /* CHTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTestUtils.h; path = Tests/CHTestUtils.h; sourceTree = "<group>"; };
+		555094491073F881005D2440 /* CHUtilsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHUtilsTest.h; path = Tests/CHUtilsTest.h; sourceTree = "<group>"; };
+		5550944A1073F881005D2440 /* CHUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHUtilsTest.m; path = Tests/CHUtilsTest.m; sourceTree = "<group>"; };
+		555094561073F914005D2440 /* CHNumber_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHNumber_Private.h; path = Source/CHNumber_Private.h; sourceTree = "<group>"; };
+		555098B81077D897005D2440 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		555098B91077D897005D2440 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* BNMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* CHMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555091B81071CE24005D2440 /* BNMath.framework in Frameworks */,
+				555091B81071CE24005D2440 /* CHMath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,13 +117,13 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* BNMath.framework */,
+				8DC2EF5B0486A6940098B216 /* CHMath.framework */,
 				5550918F1071CCD8005D2440 /* Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* BNMath */ = {
+		0867D691FE84028FC02AAC07 /* CHMath */ = {
 			isa = PBXGroup;
 			children = (
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -104,7 +135,7 @@
 				555091191071846C005D2440 /* libcrypto.dylib */,
 				555091901071CCD8005D2440 /* Tests-Info.plist */,
 			);
-			name = BNMath;
+			name = CHMath;
 			sourceTree = "<group>";
 		};
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
@@ -128,14 +159,16 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				555090F1107178C5005D2440 /* BNMath.h */,
-				5550910A10718347005D2440 /* BNUtils.h */,
-				5550910B10718347005D2440 /* BNUtils.m */,
-				555090FC10717924005D2440 /* BNNumber.h */,
-				555090FD10717924005D2440 /* BNNumber.m */,
-				555094561073F914005D2440 /* BNNumber_Private.h */,
-				555091611071A88E005D2440 /* BNMutableNumber.h */,
-				555091621071A88E005D2440 /* BNMutableNumber.m */,
+				555090F1107178C5005D2440 /* CHMath.h */,
+				555098B81077D897005D2440 /* Utils.h */,
+				555098B91077D897005D2440 /* Utils.m */,
+				5550910A10718347005D2440 /* CHUtils.h */,
+				5550910B10718347005D2440 /* CHUtils.m */,
+				555090FC10717924005D2440 /* CHNumber.h */,
+				555090FD10717924005D2440 /* CHNumber.m */,
+				555094561073F914005D2440 /* CHNumber_Private.h */,
+				555091611071A88E005D2440 /* CHMutableNumber.h */,
+				555091621071A88E005D2440 /* CHMutableNumber.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -161,7 +194,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCF5E0370ADEE00C91783 /* BNMath_Prefix.pch */,
+				32DBCF5E0370ADEE00C91783 /* CHMath_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -169,13 +202,13 @@
 		5550919D1071CCF3005D2440 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				555093DA1073ED1D005D2440 /* BNTestUtils.h */,
-				555094491073F881005D2440 /* BNUtilsTest.h */,
-				5550944A1073F881005D2440 /* BNUtilsTest.m */,
-				555091981071CCEF005D2440 /* BNNumberTest.h */,
-				555091991071CCEF005D2440 /* BNNumberTest.m */,
-				555093CE1073E3F0005D2440 /* BNMutableNumberTest.h */,
-				555093CF1073E3F0005D2440 /* BNMutableNumberTest.m */,
+				555093DA1073ED1D005D2440 /* CHTestUtils.h */,
+				555094491073F881005D2440 /* CHUtilsTest.h */,
+				5550944A1073F881005D2440 /* CHUtilsTest.m */,
+				555091981071CCEF005D2440 /* CHNumberTest.h */,
+				555091991071CCEF005D2440 /* CHNumberTest.m */,
+				555093CE1073E3F0005D2440 /* CHMutableNumberTest.h */,
+				555093CF1073E3F0005D2440 /* CHMutableNumberTest.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -187,10 +220,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555090F2107178C5005D2440 /* BNMath.h in Headers */,
-				5550910C10718347005D2440 /* BNUtils.h in Headers */,
-				555090FE10717924005D2440 /* BNNumber.h in Headers */,
-				555091631071A88E005D2440 /* BNMutableNumber.h in Headers */,
+				555090F2107178C5005D2440 /* CHMath.h in Headers */,
+				5550910C10718347005D2440 /* CHUtils.h in Headers */,
+				555090FE10717924005D2440 /* CHNumber.h in Headers */,
+				555091631071A88E005D2440 /* CHMutableNumber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,23 +249,24 @@
 			productReference = 5550918F1071CCD8005D2440 /* Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		8DC2EF4F0486A6940098B216 /* BNMath */ = {
+		8DC2EF4F0486A6940098B216 /* CHMath */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "BNMath" */;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "CHMath" */;
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
+				555096DC1075BC48005D2440 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BNMath;
+			name = CHMath;
 			productInstallPath = "$(HOME)/Library/Frameworks";
-			productName = BNMath;
-			productReference = 8DC2EF5B0486A6940098B216 /* BNMath.framework */;
+			productName = CHMath;
+			productReference = 8DC2EF5B0486A6940098B216 /* CHMath.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -240,16 +274,17 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BNMath" */;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "CHMath" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 0867D691FE84028FC02AAC07 /* BNMath */;
+			mainGroup = 0867D691FE84028FC02AAC07 /* CHMath */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC2EF4F0486A6940098B216 /* BNMath */,
+				8DC2EF4F0486A6940098B216 /* CHMath */,
 				5550918E1071CCD8005D2440 /* Tests */,
+				5550980E10769432005D2440 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +321,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		5550980D10769432005D2440 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "doxygen doxygen/Doxyfile";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -293,9 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555091BE1071CF6D005D2440 /* BNNumberTest.m in Sources */,
-				555093D01073E3F0005D2440 /* BNMutableNumberTest.m in Sources */,
-				5550944B1073F881005D2440 /* BNUtilsTest.m in Sources */,
+				555091BE1071CF6D005D2440 /* CHNumberTest.m in Sources */,
+				555093D01073E3F0005D2440 /* CHMutableNumberTest.m in Sources */,
+				5550944B1073F881005D2440 /* CHUtilsTest.m in Sources */,
+				555098BA1077D897005D2440 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +352,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555090FF10717924005D2440 /* BNNumber.m in Sources */,
-				5550910D10718347005D2440 /* BNUtils.m in Sources */,
-				555091641071A88E005D2440 /* BNMutableNumber.m in Sources */,
+				555090FF10717924005D2440 /* CHNumber.m in Sources */,
+				5550910D10718347005D2440 /* CHUtils.m in Sources */,
+				555091641071A88E005D2440 /* CHMutableNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +363,7 @@
 /* Begin PBXTargetDependency section */
 		555091951071CCDC005D2440 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* BNMath */;
+			target = 8DC2EF4F0486A6940098B216 /* CHMath */;
 			targetProxy = 555091941071CCDC005D2440 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -344,10 +393,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Source/BNMath_Prefix.pch;
+				GCC_PREFIX_HEADER = Source/CHMath_Prefix.pch;
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = BNMath;
+				PRODUCT_NAME = CHMath;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -362,10 +411,10 @@
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Source/BNMath_Prefix.pch;
+				GCC_PREFIX_HEADER = Source/CHMath_Prefix.pch;
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = BNMath;
+				PRODUCT_NAME = CHMath;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -452,10 +501,31 @@
 			};
 			name = Release;
 		};
+		5550980F10769432005D2440 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Documentation;
+			};
+			name = Debug;
+		};
+		5550981010769432005D2440 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Documentation;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "BNMath" */ = {
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "CHMath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug */,
@@ -464,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "BNMath" */ = {
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "CHMath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
@@ -478,6 +548,15 @@
 			buildConfigurations = (
 				555091911071CCD8005D2440 /* Debug */,
 				555091921071CCD8005D2440 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5550981B1076944A005D2440 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5550980F10769432005D2440 /* Debug */,
+				5550981010769432005D2440 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,14 +1,14 @@
 //
-//  BNNumberTest.m
-//  BNMath
+//  CHNumberTest.m
+//  CHMath
 //
 //  Created by Dave DeLong on 9/28/09.
 //  Copyright 2009 Home. All rights reserved.
 //
 
-#import "BNNumberTest.h"
+#import "CHNumberTest.h"
 
-@implementation BNNumberTest
+@implementation CHNumberTest
 
 - (void) setUp {
 	return;
@@ -19,39 +19,43 @@
 }
 
 - (void) test01_construction {
-	BNNumber * n = [BNNumber number];
-	STAssertNotNil(n, @"+[BNNumber number] failed");
-	STAssertTrue([n integerValue] == 0, @"+[BNNumber number] failed (%@)", n);
+	CHNumber * n = [CHNumber number];
+	STAssertNotNil(n, @"+[CHNumber number] failed");
+	STAssertTrue([n integerValue] == 0, @"+[CHNumber number] failed (%@)", n);
 	
-	n = [BNNumber numberWithHexString:@"abc"];
-	STAssertNotNil(n, @"+[BNNumber numberWithHexString:] failed");
-	STAssertTrue([n integerValue] == 2748, @"+[BNNumber numberWithHexString:] failed (%@)", n);
+	n = [CHNumber numberWithHexString:@"abc"];
+	STAssertNotNil(n, @"+[CHNumber numberWithHexString:] failed");
+	STAssertTrue([n integerValue] == 2748, @"+[CHNumber numberWithHexString:] failed (%@)", n);
 	
-	n = [BNNumber numberWithHexString:@"xyz"];
-	STAssertNil(n, @"+[BNNumber numberWithHexString:] failed validation");
+	n = [CHNumber numberWithHexString:@"xyz"];
+	STAssertNil(n, @"+[CHNumber numberWithHexString:] failed validation");
 	
-	n = [BNNumber numberWithInteger:-42];
-	STAssertNotNil(n, @"+[BNNumber numberWithInteger:] failed");
-	STAssertTrue([n integerValue] == -42, @"+[BNNumber numberWithInteger:] failed (%@)", n);
+	n = [CHNumber numberWithInteger:-42];
+	STAssertNotNil(n, @"+[CHNumber numberWithInteger:] failed");
+	STAssertTrue([n integerValue] == -42, @"+[CHNumber numberWithInteger:] failed (%@)", n);
 	
-	n = [BNNumber numberWithNumber:[NSNumber numberWithInteger:42]];
-	STAssertNotNil(n, @"+[BNNumber numberWithNumber:] failed");
-	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithInteger:] failed (%@)", n);
+	n = [CHNumber numberWithNumber:[NSNumber numberWithInteger:42]];
+	STAssertNotNil(n, @"+[CHNumber numberWithNumber:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[CHNumber numberWithInteger:] failed (%@)", n);
 	
-	n = [BNNumber numberWithString:@"42"];
-	STAssertNotNil(n, @"+[BNNumber numberWithString:] failed");
-	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithString:] failed (%@)", n);
+	n = [CHNumber numberWithString:@"42"];
+	STAssertNotNil(n, @"+[CHNumber numberWithString:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[CHNumber numberWithString:] failed (%@)", n);
 	
-	n = [BNNumber numberWithString:@"abc"];
-	STAssertNil(n, @"+[BNNumber numberWithString:] failed validation");
+	n = [CHNumber numberWithString:@"-42"];
+	STAssertNotNil(n, @"+[CHNumber numberWithString:] failed");
+	STAssertTrue([n integerValue] == -42, @"+[CHNumber numberWithString:] failed (%@)", n);
 	
-	n = [BNNumber numberWithUnsignedInteger:42];
-	STAssertNotNil(n, @"+[BNNumber numberWithUnsignedInteger:] failed");
-	STAssertTrue([n integerValue] == 42, @"+[BNNumber numberWithUnsignedInteger:] failed (%@)", n);
+	n = [CHNumber numberWithString:@"abc"];
+	STAssertNil(n, @"+[CHNumber numberWithString:] failed validation");
+	
+	n = [CHNumber numberWithUnsignedInteger:42];
+	STAssertNotNil(n, @"+[CHNumber numberWithUnsignedInteger:] failed");
+	STAssertTrue([n integerValue] == 42, @"+[CHNumber numberWithUnsignedInteger:] failed (%@)", n);
 }
 
 - (void) test02_stringValues {
-	BNNumber * n = [BNNumber numberWithInteger:42];
+	CHNumber * n = [CHNumber numberWithInteger:42];
 	ASSERTTRUE([[n stringValue] isEqual:@"42"], n, @"stringValue");
 	ASSERTTRUE([[n hexStringValue] isEqual:@"2A"], n, @"hexStringValue");
 	NSString * binary = [n binaryStringValue];
@@ -59,92 +63,92 @@
 	NSLog(@"%d =? %d", [binary length], [exp length]);
 	ASSERTTRUE([binary isEqual:exp], n, @"binaryStringValue");
 	
-	n = [BNNumber numberWithInteger:-42];
+	n = [CHNumber numberWithInteger:-42];
 	ASSERTTRUE([[n stringValue] isEqual:@"-42"], n, @"stringValue");
 	ASSERTTRUE([[n hexStringValue] isEqual:@"-2A"], n, @"hexStringValue");
 	ASSERTTRUE([[n binaryStringValue] isEqual:@"1010110"], n, @"binaryStringValue");
 }
 
 - (void) test_factorization {
-	BNNumber * n = [BNNumber numberWithInteger:42];
+	CHNumber * n = [CHNumber numberWithInteger:42];
 	NSArray * factors = [[n factors] valueForKey:@"stringValue"];
 	NSArray * expected = [NSArray arrayWithObjects:@"2", @"3", @"7", nil];
-	STAssertTrue([factors isEqual:expected], @"-[BNNumber factors] failed (%@)", factors);
+	STAssertTrue([factors isEqual:expected], @"-[CHNumber factors] failed (%@)", factors);
 	
-	n = [BNNumber numberWithInteger:137];
+	n = [CHNumber numberWithInteger:137];
 	factors = [[n factors] valueForKey:@"stringValue"];
 	expected = [NSArray array];
-	STAssertTrue([factors isEqual:expected], @"-[BNNumber factors] failed (%@)", factors);
+	STAssertTrue([factors isEqual:expected], @"-[CHNumber factors] failed (%@)", factors);
 }
 
 - (void) test_zero {
-	BNNumber * n = [BNNumber number];
+	CHNumber * n = [CHNumber number];
 	ASSERTTRUE([n isZero], n, @"isZero");
 	
-	n = [BNNumber numberWithInteger:1];
+	n = [CHNumber numberWithInteger:1];
 	ASSERTFALSE([n isZero], n, @"isZero");
 }
 
 - (void) test_one {
-	BNNumber * n = [BNNumber number];
+	CHNumber * n = [CHNumber number];
 	ASSERTFALSE([n isOne], n, @"isOne");
 	
-	n = [BNNumber numberWithInteger:1];
+	n = [CHNumber numberWithInteger:1];
 	ASSERTTRUE([n isOne], n, @"isOne");
 }
 
 - (void) test_negative {
-	BNNumber * n = [BNNumber numberWithInteger:1];
+	CHNumber * n = [CHNumber numberWithInteger:1];
 	ASSERTFALSE([n isNegative], n, @"isNegative");
 	
-	n = [BNNumber numberWithInteger:0];
+	n = [CHNumber numberWithInteger:0];
 	ASSERTFALSE([n isNegative], n, @"isNegative");
 	
-	n = [BNNumber numberWithInteger:-1];
+	n = [CHNumber numberWithInteger:-1];
 	ASSERTTRUE([n isNegative], n, @"isNegative");
 }
 
 - (void) test_positive {
-	BNNumber * n = [BNNumber numberWithInteger:1];
+	CHNumber * n = [CHNumber numberWithInteger:1];
 	ASSERTTRUE([n isPositive], n, @"isPositive");
 	
-	n = [BNNumber numberWithInteger:0];
+	n = [CHNumber numberWithInteger:0];
 	ASSERTTRUE([n isPositive], n, @"isPositive");
 	
-	n = [BNNumber numberWithInteger:-1];
+	n = [CHNumber numberWithInteger:-1];
 	ASSERTFALSE([n isPositive], n, @"isPositive");
 }
 
 - (void) test_prime {
-	BNNumber * n = [BNNumber numberWithInteger:17];
+	CHNumber * n = [CHNumber numberWithInteger:17];
 	ASSERTTRUE([n isPrime], n, @"isPrime");
 	
 	//561 is a Carmichael number and fails Fermat's little theorem
-	n = [BNNumber numberWithInteger:561];
+	n = [CHNumber numberWithInteger:561];
 	ASSERTFALSE([n isPrime], n, @"isPrime");
 }
 
 - (void) test_odd {
-	BNNumber * n = [BNNumber numberWithInteger:39];
+	CHNumber * n = [CHNumber numberWithInteger:39];
 	ASSERTTRUE([n isOdd], n, @"isOdd");
 	
-	n = [BNNumber numberWithInteger:42];
+	n = [CHNumber numberWithInteger:42];
 	ASSERTFALSE([n isOdd], n, @"isOdd");
 }
 
 - (void) test_even {
-	BNNumber * n = [BNNumber numberWithInteger:39];
+	CHNumber * n = [CHNumber numberWithInteger:39];
 	ASSERTFALSE([n isEven], n, @"isEven");
 	
-	n = [BNNumber numberWithInteger:42];
+	n = [CHNumber numberWithInteger:42];
 	ASSERTTRUE([n isEven], n, @"isEven");
 }
 
 - (void) test_greaterThan {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTTRUE([three isGreaterThanNumber:n1], three, @"isGreaterThanNumber:");
 	ASSERTTRUE([three isGreaterThanNumber:one], three, @"isGreaterThanNumber:");
@@ -156,10 +160,10 @@
 }
 
 - (void) test_greaterThanOrEqual {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTTRUE([three isGreaterThanOrEqualToNumber:n1], three, @"isGreaterThanOrEqualToNumber:");
 	ASSERTTRUE([three isGreaterThanOrEqualToNumber:one], three, @"isGreaterThanOrEqualToNumber:");
@@ -171,10 +175,10 @@
 }
 
 - (void) test_lessThan {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTFALSE([three isLessThanNumber:n1], three, @"isLessThanNumber:");
 	ASSERTFALSE([three isLessThanNumber:one], three, @"isLessThanNumber:");
@@ -186,10 +190,10 @@
 }
 
 - (void) test_lessThanOrEqual {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTFALSE([three isLessThanOrEqualToNumber:n1], three, @"isLessThanOrEqualToNumber:");
 	ASSERTFALSE([three isLessThanOrEqualToNumber:one], three, @"isLessThanOrEqualToNumber:");
@@ -201,10 +205,10 @@
 }
 
 - (void) test_equal {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTFALSE([n1 isEqualToNumber:one], n1, @"isEqualToNumber:");
 	ASSERTFALSE([n1 isEqualToNumber:three], n1, @"isEqualToNumber:");
@@ -216,10 +220,10 @@
 }
 
 - (void) test_compare {
-	BNNumber * n1 = [BNNumber numberWithInteger:2];
-	BNNumber * n2 = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * one = [BNNumber numberWithInteger:1];
+	CHNumber * n1 = [CHNumber numberWithInteger:2];
+	CHNumber * n2 = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
 	
 	ASSERTTRUE([n1 compareTo:n2] == NSOrderedSame, n1, @"compareTo:");
 	ASSERTTRUE([n1 compareTo:one] == NSOrderedDescending, n1, @"compareTo:");
@@ -227,10 +231,10 @@
 }
 
 - (void) test_modularDivision {
-	BNNumber * n = [BNNumber numberWithInteger:42];
-	BNNumber * m = [BNNumber numberWithInteger:5];
+	CHNumber * n = [CHNumber numberWithInteger:42];
+	CHNumber * m = [CHNumber numberWithInteger:5];
 	
-	BNNumber * r = [n numberByModding:m];
+	CHNumber * r = [n numberByModding:m];
 	ASSERTTRUE([r integerValue] == 2, r, @"numberByModding:");
 	
 	r = [n numberByInverseModding:m];
@@ -239,89 +243,89 @@
 }
 
 - (void) test_addition {
-	BNNumber * one = [BNNumber numberWithInteger:1];
-	BNNumber * two = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * one = [CHNumber numberWithInteger:1];
+	CHNumber * two = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	
-	BNNumber * r = [one numberByAdding:two];
+	CHNumber * r = [one numberByAdding:two];
 	ASSERTTRUE([r integerValue] == 3, r, @"numberByAdding:");
 	
-	BNNumber * ten = [BNNumber numberWithInteger:10];
+	CHNumber * ten = [CHNumber numberWithInteger:10];
 	r = [ten numberByAdding:three mod:two];
 	ASSERTTRUE([r integerValue] == 1, r, @"numberByAdding:mod:");
 }
 
 - (void) test_subtraction {
-	BNNumber * two = [BNNumber numberWithInteger:2];
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * two = [CHNumber numberWithInteger:2];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	
-	BNNumber * r = [three numberBySubtracting:two];
+	CHNumber * r = [three numberBySubtracting:two];
 	ASSERTTRUE([r integerValue] == 1, r, @"numberBySubtracting:");
 	
-	BNNumber * ten = [BNNumber numberWithInteger:10];
+	CHNumber * ten = [CHNumber numberWithInteger:10];
 	r = [ten numberBySubtracting:three mod:two];
 	ASSERTTRUE([r integerValue] == 1, r, @"numberBySubtracting:mod:");
 }
 
 - (void) test_multiplication {
-	BNNumber * three = [BNNumber numberWithInteger:3];
-	BNNumber * seven = [BNNumber numberWithInteger:7];
+	CHNumber * three = [CHNumber numberWithInteger:3];
+	CHNumber * seven = [CHNumber numberWithInteger:7];
 	
-	BNNumber * r = [three numberByMultiplyingBy:seven];
+	CHNumber * r = [three numberByMultiplyingBy:seven];
 	ASSERTTRUE([r integerValue] == 21, r, @"numberByMultiplyingBy:");
 	
-	BNNumber * two = [BNNumber numberWithInteger:2];
+	CHNumber * two = [CHNumber numberWithInteger:2];
 	
 	r = [three numberByMultiplyingBy:seven mod:two];
 	ASSERTTRUE([r integerValue] == 1, r, @"numberByMultiplyingBy:mod:");	
 }
 
 - (void) test_division {
-	BNNumber * twentyone = [BNNumber numberWithInteger:21];
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * twentyone = [CHNumber numberWithInteger:21];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	
-	BNNumber * r = [twentyone numberByDividingBy:three];
+	CHNumber * r = [twentyone numberByDividingBy:three];
 	ASSERTTRUE([r integerValue] == 7, r, @"numberByDividingBy:");
 	
 	//division is integer division, and results are rounded down
-	BNNumber * four = [BNNumber numberWithInteger:4];
+	CHNumber * four = [CHNumber numberWithInteger:4];
 	r = [twentyone numberByDividingBy:four];
 	ASSERTTRUE([r integerValue] == 5, r, @"numberByDividingBy:");
 }
 
 - (void) test_squaring {
-	BNNumber * two = [BNNumber numberWithInteger:2];
+	CHNumber * two = [CHNumber numberWithInteger:2];
 	
-	BNNumber * r = [two squaredNumber];
+	CHNumber * r = [two squaredNumber];
 	ASSERTTRUE([r integerValue] == 4, r, @"squaredNumber");
 	
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	
 	r = [two squaredNumberMod:three];
 	ASSERTTRUE([r integerValue] == 1, r, @"squaredNumberMod:");
 }
 
 - (void) test_exponents {
-	BNNumber * two = [BNNumber numberWithInteger:2];
-	BNNumber * five = [BNNumber numberWithInteger:5];
+	CHNumber * two = [CHNumber numberWithInteger:2];
+	CHNumber * five = [CHNumber numberWithInteger:5];
 	
-	BNNumber * r = [two numberByRaisingToPower:five];
+	CHNumber * r = [two numberByRaisingToPower:five];
 	ASSERTTRUE([r integerValue] == 32, r, @"numberByRaisingToPower:");
 	
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	r = [two numberByRaisingToPower:five mod:three];
 	ASSERTTRUE([r integerValue] == 2, r, @"numberByRaisingToPower:mod:");
 }
 
 - (void) test_negation {
-	BNNumber * n = [BNNumber numberWithInteger:42];
+	CHNumber * n = [CHNumber numberWithInteger:42];
 	
-	BNNumber * r = [n negatedNumber];
+	CHNumber * r = [n negatedNumber];
 	ASSERTTRUE([r integerValue] == -42, r, @"negatedNumber");
 }
 
 - (void) test_bitSet {
-	BNNumber * thirteen = [BNNumber numberWithInteger:13];
+	CHNumber * thirteen = [CHNumber numberWithInteger:13];
 	NSUInteger iThirteen = 13;
 	for (int i = 0; i < sizeof(NSUInteger)*8; ++i) {
 		BOOL isBitSet = (iThirteen >> i) & 1;
@@ -330,9 +334,9 @@
 }
 
 - (void) test_bitShiftLeft {
-	BNNumber * three = [BNNumber numberWithInteger:3];
+	CHNumber * three = [CHNumber numberWithInteger:3];
 	
-	BNNumber * r = [three numberByShiftingLeftOnce];
+	CHNumber * r = [three numberByShiftingLeftOnce];
 	ASSERTTRUE([r integerValue] == 6, r, @"numberByShiftingLeftOnce");
 	
 	r = [three numberByShiftingLeft:3];
@@ -340,9 +344,9 @@
 }
 
 - (void) test_bitShiftRight {
-	BNNumber * twentyfour = [BNNumber numberWithInteger:24];
+	CHNumber * twentyfour = [CHNumber numberWithInteger:24];
 	
-	BNNumber * r = [twentyfour numberByShiftingRightOnce];
+	CHNumber * r = [twentyfour numberByShiftingRightOnce];
 	ASSERTTRUE([r integerValue] == 12, r, @"numberByShiftingRightOnce");
 	
 	r = [twentyfour numberByShiftingRight:3];
@@ -350,9 +354,9 @@
 }
 
 - (void) test_bitMasking {
-	BNNumber * thirteen = [BNNumber numberWithInteger:13];
+	CHNumber * thirteen = [CHNumber numberWithInteger:13];
 	
-	BNNumber * r = [thirteen numberByMaskingWithInteger:3];
+	CHNumber * r = [thirteen numberByMaskingWithInteger:3];
 	ASSERTTRUE([r integerValue] == 5, r, @"numberByMaskingWithInteger:");
 }
 

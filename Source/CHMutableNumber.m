@@ -1,15 +1,15 @@
 //
-//  BNMutableNumber.m
-//  BNMath
+//  CHMutableNumber.m
+//  CHMath
 //
 //  Created by Dave DeLong on 9/28/09.
 //  Copyright 2009 Home. All rights reserved.
 //
 
-#import "BNMutableNumber.h"
-#import "BNNumber_Private.h"
+#import "CHMutableNumber.h"
+#import "CHNumber_Private.h"
 
-@implementation BNMutableNumber
+@implementation CHMutableNumber
 
 - (void) setIntegerValue:(NSInteger)newValue {
 	if (newValue < 0) {
@@ -33,7 +33,7 @@
 	}
 }
 
-- (void)modByNumber:(BNNumber *)mod {
+- (void)modByNumber:(CHNumber *)mod {
 	if ([mod isZero] == NO) {
 		BN_mod([self bigNumber], [self bigNumber], [mod bigNumber], context);
 	}
@@ -43,11 +43,11 @@
 	BN_add_word([self bigNumber], addend);
 }
 
-- (void)addNumber:(BNNumber *)addend {
+- (void)addNumber:(CHNumber *)addend {
 	BN_add([self bigNumber], [self bigNumber], [addend bigNumber]);
 }
 
-- (void)addNumber:(BNNumber *)addend mod:(BNNumber *)mod {
+- (void)addNumber:(CHNumber *)addend mod:(CHNumber *)mod {
 	BN_mod_add([self bigNumber], [self bigNumber], [addend bigNumber], [mod bigNumber], context);
 }
 
@@ -55,11 +55,11 @@
 	BN_sub_word([self bigNumber], subtrahend);
 }
 
-- (void)subtractNumber:(BNNumber *)subtrahend {
+- (void)subtractNumber:(CHNumber *)subtrahend {
 	BN_sub([self bigNumber], [self bigNumber], [subtrahend bigNumber]);
 }
 
-- (void)subtractNumber:(BNNumber *)subtrahend mod:(BNNumber *)mod {
+- (void)subtractNumber:(CHNumber *)subtrahend mod:(CHNumber *)mod {
 	BN_mod_sub([self bigNumber], [self bigNumber], [subtrahend bigNumber], [mod bigNumber], context);
 }
 
@@ -67,11 +67,11 @@
 	BN_mul_word([self bigNumber], multiplicand);
 }
 
-- (void)multiplyByNumber:(BNNumber *)multiplicand {
+- (void)multiplyByNumber:(CHNumber *)multiplicand {
 	BN_mul([self bigNumber], [self bigNumber], [multiplicand bigNumber], context);
 }
 
-- (void)multiplyByNumber:(BNNumber *)multiplicand mod:(BNNumber *)mod {
+- (void)multiplyByNumber:(CHNumber *)multiplicand mod:(CHNumber *)mod {
 	BN_mod_mul([self bigNumber], [self bigNumber], [multiplicand bigNumber], [mod bigNumber], context);
 }
 
@@ -79,20 +79,20 @@
 	if (divisor != 0) { BN_div_word([self bigNumber], divisor); }
 }
 
-- (void)divideByNumber:(BNNumber *)divisor {
+- (void)divideByNumber:(CHNumber *)divisor {
 	BN_div([self bigNumber], NULL, [self bigNumber], [divisor bigNumber], context);
 }
 
 - (void)raiseToInteger:(NSInteger)exponent {
-	BNNumber * exp = [BNNumber numberWithInteger:exponent];
+	CHNumber * exp = [CHNumber numberWithInteger:exponent];
 	[self raiseToNumber:exp];
 }
 
-- (void)raiseToNumber:(BNNumber *)exponent {
+- (void)raiseToNumber:(CHNumber *)exponent {
 	BN_exp([self bigNumber], [self bigNumber], [exponent bigNumber], context);
 }
 
-- (void)raiseToNumber:(BNNumber *)exponent mod:(BNNumber *)mod {
+- (void)raiseToNumber:(CHNumber *)exponent mod:(CHNumber *)mod {
 	BN_mod_exp([self bigNumber], [self bigNumber], [exponent bigNumber], [mod bigNumber], context);
 }
 
@@ -100,7 +100,7 @@
 	BN_sqr([self bigNumber], [self bigNumber], context);
 }
 
-- (void)squareMod:(BNNumber *)mod {
+- (void)squareMod:(CHNumber *)mod {
 	BN_mod_sqr([self bigNumber], [self bigNumber], [mod bigNumber], context);
 }
 

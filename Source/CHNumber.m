@@ -1,18 +1,25 @@
 //
-//  BNNumber.m
-//  BNMath
+//  CHNumber.m
+//  CHMath
 //
 //  Created by Dave DeLong on 9/28/09.
 //  Copyright 2009 Home. All rights reserved.
 //
 
-#import "BNNumber.h"
-#import "BNUtils.h"
-#import "BNNumber_Private.h"
+#import "CHNumber.h"
+#import "CHUtils.h"
+#import "CHNumber_Private.h"
 
-#define BN_ASCII_ZERO 48
+#define CH_ASCII_ZERO 48
 
-@implementation BNNumber
+@interface CHNumber ()
+
+@property (readonly) BIGNUM * bigNumber;
+
+@end
+
+
+@implementation CHNumber
 
 @synthesize bigNumber;
 
@@ -82,21 +89,21 @@
 }
 
 - (id)initWithString:(NSString *)string {
-	NSCharacterSet * decSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+	NSCharacterSet * decSet = [NSCharacterSet characterSetWithCharactersInString:@"-0123456789"];
 	NSRange nonDecChar = [string rangeOfCharacterFromSet:[decSet invertedSet]];
 	if (nonDecChar.location != NSNotFound) { [self release]; return nil; }
 	if (self = [self init]) {
-		BN_dec2bn(&bigNumber, [string cStringUsingEncoding:NSUTF8StringEncoding]);
+		BN_dec2bn(&bigNumber, [string cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
 	return self;
 }
 
 - (id)initWithHexString:(NSString *)string {
-	NSCharacterSet * hexSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefABCDEF"];
+	NSCharacterSet * hexSet = [NSCharacterSet characterSetWithCharactersInString:@"-0123456789abcdefABCDEF"];
 	NSRange nonHexChar = [string rangeOfCharacterFromSet:[hexSet invertedSet]];
 	if (nonHexChar.location != NSNotFound) { [self release]; return nil; }
 	if (self = [self init]) {
-		BN_hex2bn(&bigNumber, [string cStringUsingEncoding:NSUTF8StringEncoding]);
+		BN_hex2bn(&bigNumber, [string cStringUsingEncoding:NSASCIIStringEncoding]);
 	}
 	return self;
 }
@@ -141,11 +148,11 @@
 #pragma mark Getters and Setters
 
 - (NSString *)stringValue {
-	return [NSString stringWithCString:BN_bn2dec([self bigNumber]) encoding:NSUTF8StringEncoding];
+	return [NSString stringWithCString:BN_bn2dec([self bigNumber]) encoding:NSASCIIStringEncoding];
 }
 
 - (NSString *)hexStringValue {
-	return [NSString stringWithCString:BN_bn2hex([self bigNumber]) encoding:NSUTF8StringEncoding];
+	return [NSString stringWithCString:BN_bn2hex([self bigNumber]) encoding:NSASCIIStringEncoding];
 }
 
 - (NSString *)binaryStringValue {
@@ -165,9 +172,9 @@
 				shouldFlip = YES;
 			}
 		}
-		string[idx] = bit + BN_ASCII_ZERO;
+		string[idx] = bit + CH_ASCII_ZERO;
 	}
-	string[0] = (int)isNegative + BN_ASCII_ZERO;
+	string[0] = (int)isNegative + CH_ASCII_ZERO;
 	NSString * binaryString = [[NSString alloc] initWithBytesNoCopy:string length:totalBufferSize encoding:NSASCIIStringEncoding freeWhenDone:YES];
 	return [binaryString autorelease];
 }
@@ -201,7 +208,7 @@
 }
 
 - (BOOL)isNegative {
-	return [self isLessThanNumber:[BNNumber number]];
+	return [self isLessThanNumber:[CHNumber number]];
 }
 
 - (BOOL)isPositive {
@@ -220,37 +227,37 @@
 	return ![self isOdd];
 }
 
-- (BOOL)isGreaterThanNumber:(BNNumber *)number {
+- (BOOL)isGreaterThanNumber:(CHNumber *)number {
 	return (BN_cmp([self bigNumber], [number bigNumber]) == NSOrderedDescending);
 }
 
-- (BOOL)isGreaterThanOrEqualToNumber:(BNNumber *)number {
+- (BOOL)isGreaterThanOrEqualToNumber:(CHNumber *)number {
 	return ([self isGreaterThanNumber:number] || [self isEqualToNumber:number]);
 }
 
-- (NSInteger) compareTo:(id)object {
-	if ([object isKindOfClass:[self class]]) {
-		BNNumber * other = (BNNumber *)object;
-		return BN_cmp([self bigNumber], [other bigNumber]);
+- (NSComparisonResult) compare:(id)object {
+	if ([object isKindOfClass:[CHNumber class]]) {
+		CHNumber * other = (CHNumber *)object;
+		return (NSComparisonResult)BN_cmp([self bigNumber], [other bigNumber]);
 	}
 	return NSOrderedDescending;
 }
 
-- (BOOL)isEqualToNumber:(BNNumber *)number {
+- (BOOL)isEqualToNumber:(CHNumber *)number {
 	return (BN_cmp([self bigNumber], [number bigNumber]) == NSOrderedSame);
 }
 
-- (BOOL)isLessThanNumber:(BNNumber *)number {
+- (BOOL)isLessThanNumber:(CHNumber *)number {
 	return (BN_cmp([self bigNumber], [number bigNumber]) == NSOrderedAscending);	
 }
 
-- (BOOL)isLessThanOrEqualToNumber:(BNNumber *)number {
+- (BOOL)isLessThanOrEqualToNumber:(CHNumber *)number {
 	return ([self isLessThanNumber:number] || [self isEqualToNumber:number]);
 }
 
 - (BOOL) isEqualTo:(id)object {
 	if ([object isKindOfClass:[self class]]) {
-		return [self isEqualToNumber:(BNNumber *)object];
+		return [self isEqualToNumber:(CHNumber *)object];
 	} else {
 		return [super isEqualTo:object];
 	}
@@ -263,9 +270,9 @@
 - (NSArray *)factors {
 	NSMutableArray * factors = [NSMutableArray array];
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	NSArray * primes = [BNUtils primesUpTo:self];
-	BNNumber * copy = [[self copy] autorelease];
-	for (BNNumber * prime in primes) {
+	NSArray * primes = [CHUtils primesUpTo:self];
+	CHNumber * copy = [[self copy] autorelease];
+	for (CHNumber * prime in primes) {
 		while([[copy numberByModding:prime] isZero]) {
 			[factors addObject:prime];
 			copy = [copy numberByDividingBy:prime];
@@ -279,86 +286,86 @@
 #pragma mark -
 #pragma mark Mathematical Operations
 
-- (BNNumber *)numberByModding:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByModding:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod([result bigNumber], [self bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByInverseModding:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByInverseModding:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_inverse([result bigNumber], [self bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByAdding:(BNNumber *)addend {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByAdding:(CHNumber *)addend {
+	CHNumber * result = [CHNumber number];
 	BN_add([result bigNumber], [self bigNumber], [addend bigNumber]);
 	return result;
 }
 
-- (BNNumber *)numberByAdding:(BNNumber *)addend mod:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByAdding:(CHNumber *)addend mod:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_add([result bigNumber], [self bigNumber], [addend bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberBySubtracting:(BNNumber *)subtrahend {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberBySubtracting:(CHNumber *)subtrahend {
+	CHNumber * result = [CHNumber number];
 	BN_sub([result bigNumber], [self bigNumber], [subtrahend bigNumber]);
 	return result;
 }
 
-- (BNNumber *)numberBySubtracting:(BNNumber *)subtrahend mod:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberBySubtracting:(CHNumber *)subtrahend mod:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_sub([result bigNumber], [self bigNumber], [subtrahend bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByMultiplyingBy:(CHNumber *)multiplicand {
+	CHNumber * result = [CHNumber number];
 	BN_mul([result bigNumber], [self bigNumber], [multiplicand bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByMultiplyingBy:(BNNumber *)multiplicand mod:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByMultiplyingBy:(CHNumber *)multiplicand mod:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_mul([result bigNumber], [self bigNumber], [multiplicand bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByDividingBy:(BNNumber *)divisor {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByDividingBy:(CHNumber *)divisor {
+	CHNumber * result = [CHNumber number];
 	BN_div([result bigNumber], NULL, [self bigNumber], [divisor bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)squaredNumber {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)squaredNumber {
+	CHNumber * result = [CHNumber number];
 	BN_sqr([result bigNumber], [self bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)squaredNumberMod:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)squaredNumberMod:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_sqr([result bigNumber], [self bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByRaisingToPower:(BNNumber *)exponent {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByRaisingToPower:(CHNumber *)exponent {
+	CHNumber * result = [CHNumber number];
 	BN_exp([result bigNumber], [self bigNumber], [exponent bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)numberByRaisingToPower:(BNNumber *)exponent mod:(BNNumber *)mod {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByRaisingToPower:(CHNumber *)exponent mod:(CHNumber *)mod {
+	CHNumber * result = [CHNumber number];
 	BN_mod_exp([result bigNumber], [self bigNumber], [exponent bigNumber], [mod bigNumber], context);
 	return result;
 }
 
-- (BNNumber *)negatedNumber {
-	BNNumber * result = [self copy];
+- (CHNumber *)negatedNumber {
+	CHNumber * result = [self copy];
 	BN_set_negative([result bigNumber], ![self isNegative]);
 	return [result autorelease];
 }
@@ -369,32 +376,32 @@
 	return BN_is_bit_set([self bigNumber], bit);
 }
 
-- (BNNumber *)numberByShiftingLeftOnce {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByShiftingLeftOnce {
+	CHNumber * result = [CHNumber number];
 	BN_lshift1([result bigNumber], [self bigNumber]);
 	return result;
 }
 
-- (BNNumber *)numberByShiftingLeft:(NSUInteger)leftShift {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByShiftingLeft:(NSUInteger)leftShift {
+	CHNumber * result = [CHNumber number];
 	BN_lshift([result bigNumber], [self bigNumber], leftShift);
 	return result;
 }
 
-- (BNNumber *)numberByShiftingRightOnce {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByShiftingRightOnce {
+	CHNumber * result = [CHNumber number];
 	BN_rshift1([result bigNumber], [self bigNumber]);
 	return result;
 }
 
-- (BNNumber *)numberByShiftingRight:(NSUInteger)rightShift {
-	BNNumber * result = [BNNumber number];
+- (CHNumber *)numberByShiftingRight:(NSUInteger)rightShift {
+	CHNumber * result = [CHNumber number];
 	BN_rshift([result bigNumber], [self bigNumber], rightShift);
 	return result;
 }
 
-- (BNNumber *)numberByMaskingWithInteger:(NSUInteger)mask {
-	BNNumber * result = [self copy];
+- (CHNumber *)numberByMaskingWithInteger:(NSUInteger)mask {
+	CHNumber * result = [self copy];
 	BN_mask_bits([result bigNumber], mask);
 	return [result autorelease];
 }

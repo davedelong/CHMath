@@ -1,7 +1,7 @@
 //
-// Prefix header for all source files of the 'BNMath' target in the 'BNMath' project.
+// Prefix header for all source files of the 'CHMath' target in the 'CHMath' project.
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
+    #import <Foundation/Foundation.h>
 #endif

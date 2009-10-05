@@ -4,7 +4,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "BNMath.framework"
+PROJECT_NAME           = "CHMath.framework"
 PROJECT_NUMBER         = 
 OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = NO
@@ -136,8 +136,8 @@ HTML_STYLESHEET        = doxygen/doxygen.css
 HTML_ALIGN_MEMBERS     = YES
 GENERATE_HTMLHELP      = NO
 GENERATE_DOCSET        = NO
-DOCSET_FEEDNAME        = "BNMath.framework"
-DOCSET_BUNDLE_ID       = com.davedelong.BNMath
+DOCSET_FEEDNAME        = "CHMath.framework"
+DOCSET_BUNDLE_ID       = edu.byu.cocoaheads.CHMath
 HTML_DYNAMIC_SECTIONS  = NO
 CHM_FILE               = 
 HHC_LOCATION           = 
