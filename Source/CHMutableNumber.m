@@ -9,6 +9,14 @@
 #import "CHMutableNumber.h"
 #import "CHNumber_Private.h"
 
+@implementation CHNumber (CHMutableAdditions)
+
+- (CHMutableNumber *) mutableCopy {
+	return [[CHMutableNumber alloc] initWithString:[self stringValue]];
+}
+
+@end
+
 @implementation CHMutableNumber
 
 - (void) setIntegerValue:(NSInteger)newValue {
@@ -22,12 +30,27 @@
 	}
 }
 
+- (void)setStringValue:(NSString *)newValue {
+	NSCharacterSet * decSet = [NSCharacterSet characterSetWithCharactersInString:@"-0123456789"];
+	NSRange nonDecChar = [newValue rangeOfCharacterFromSet:[decSet invertedSet]];
+	if (nonDecChar.location != NSNotFound) { return; }
+	BN_dec2bn(&bigNumber, [newValue cStringUsingEncoding:NSASCIIStringEncoding]);
+}
+
+- (void)setHexStringValue:(NSString *)newValue {
+	NSCharacterSet * hexSet = [NSCharacterSet characterSetWithCharactersInString:@"-0123456789abcdefABCDEF"];
+	NSRange nonHexChar = [newValue rangeOfCharacterFromSet:[hexSet invertedSet]];
+	if (nonHexChar.location != NSNotFound) { return; }
+	BN_hex2bn(&bigNumber, [newValue cStringUsingEncoding:NSASCIIStringEncoding]);
+}
+
 - (void)clear {
 	BN_clear([self bigNumber]);
 }
 
 - (void)modByInteger:(NSInteger)mod {
 	if (mod != 0) { 
+		if (mod < 0) { mod *= -1; }
 		NSInteger result = BN_mod_word([self bigNumber], mod);
 		[self setIntegerValue:result];
 	}
@@ -40,7 +63,12 @@
 }
 
 - (void)addInteger:(NSInteger)addend {
-	BN_add_word([self bigNumber], addend);
+	if (addend > 0) {
+		BN_add_word([self bigNumber], addend);
+	} else {
+		addend *= -1;
+		[self subtractInteger:addend];
+	}
 }
 
 - (void)addNumber:(CHNumber *)addend {
@@ -52,7 +80,12 @@
 }
 
 - (void)subtractInteger:(NSInteger)subtrahend {
-	BN_sub_word([self bigNumber], subtrahend);
+	if (subtrahend > 0) {
+		BN_sub_word([self bigNumber], subtrahend);
+	} else {
+		subtrahend *= -1;
+		[self addInteger:subtrahend];
+	}
 }
 
 - (void)subtractNumber:(CHNumber *)subtrahend {
@@ -64,7 +97,13 @@
 }
 
 - (void)multiplyByInteger:(NSInteger)multiplicand {
-	BN_mul_word([self bigNumber], multiplicand);
+	if (multiplicand > 0) {
+		BN_mul_word([self bigNumber], multiplicand);
+	} else {
+		multiplicand *= -1;
+		BN_mul_word([self bigNumber], multiplicand);
+		[self negate];
+	}
 }
 
 - (void)multiplyByNumber:(CHNumber *)multiplicand {
@@ -76,10 +115,18 @@
 }
 
 - (void)divideByInteger:(NSInteger)divisor {
-	if (divisor != 0) { BN_div_word([self bigNumber], divisor); }
+	if (divisor == 0) { return; }
+	if (divisor > 0) {
+		BN_div_word([self bigNumber], divisor);
+	} else {
+		divisor *= -1;
+		BN_div_word([self bigNumber], divisor);
+		[self negate];
+	}
 }
 
 - (void)divideByNumber:(CHNumber *)divisor {
+	if ([divisor isZero]) { return; }
 	BN_div([self bigNumber], NULL, [self bigNumber], [divisor bigNumber], context);
 }
 

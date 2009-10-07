@@ -240,6 +240,9 @@
 	r = [n numberByInverseModding:m];
 	//(42 * result) % 5 == 1
 	ASSERTTRUE([r integerValue] == 3, r, @"numberByInverseModding:");
+	
+	r = [n numberByModding:[CHNumber numberWithInteger:-5]];
+	ASSERTTRUE([r integerValue] == 2, r, @"numberByModding:");
 }
 
 - (void) test_addition {

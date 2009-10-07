@@ -67,10 +67,40 @@
  */
 + (id)numberWithNumber:(NSNumber *)number;
 
+
+/**
+ Creates a new CHNumber initialized to @a integer.
+ @param integer the integer value of the new number
+ @return a new CHNumber, or @a nil if an error occurs
+ */
 - (id)initWithInteger:(NSInteger)integer;
+
+/**
+ Creates a new CHNumber initialized to @a integer.
+ @param integer the unsigned integer value of the new number
+ @return a new CHNumber, or @a nil if an error occurs
+ */
 - (id)initWithUnsignedInteger:(NSUInteger)integer;
+
+/**
+ Creates a new CHNumber initialized to the value represented by @a string.
+ @param string an NSString of decimal characters (0 - 9)
+ @return a new CHNumber, or @a nil if a number cannot be extracted from @a string
+ */
 - (id)initWithString:(NSString *)string;
+
+/**
+ Creates a new CHNumber initialized to the value represented by @a string
+ @param string an NSString of hexadecimal characters (0 - 9, A - F)
+ @return a new CHNumber, or @a nil if a number cannot be extracted from @a string
+ */
 - (id)initWithHexString:(NSString *)string;
+
+/**
+ Creates a new CHNumber initialized to the value of @a number
+ @param number an NSNumber that represents an integer value
+ @return a new CHNumber, or @a nil if an integer cannot be extracted from @a number.
+ */
 - (id)initWithNumber:(NSNumber *)number;
 
 #pragma mark Behavior
@@ -341,7 +371,7 @@
 /**
  Mask the receiver
  @warning I do not know how this function works
- @return a new CHNumber @a r such that @c (r = receiver << 1)
+ @return a new CHNumber
  */
 - (CHNumber *)numberByMaskingWithInteger:(NSUInteger)mask;
 

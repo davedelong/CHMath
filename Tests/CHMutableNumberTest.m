@@ -23,6 +23,12 @@
 	[n setIntegerValue:42];
 	ASSERTTRUE([n integerValue] == 42, n, @"setIntegerValue:");
 	
+	[n setStringValue:@"138"];
+	ASSERTTRUE([n integerValue] == 138, n, @"setStringValue:");
+	
+	[n setHexStringValue:@"2A"];
+	ASSERTTRUE([n integerValue] == 42, n, @"setHexStringValue:");
+	
 	[n clear];
 	ASSERTTRUE([n integerValue] == 0, n, @"clear");
 }
