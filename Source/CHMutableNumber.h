@@ -220,9 +220,7 @@
 - (void)shiftRight:(NSUInteger)rightShift;
 
 /**
- Mask the receiver
- @warning I do not know how this function works
- @return a new CHNumber
+ Truncates the receiver to be @a mask bits long
  */
 - (void)maskWithInteger:(NSInteger)mask;
 

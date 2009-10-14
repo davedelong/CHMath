@@ -369,9 +369,8 @@
 - (CHNumber *)numberByShiftingRight:(NSUInteger)rightShift;
 
 /**
- Mask the receiver
- @warning I do not know how this function works
- @return a new CHNumber
+ Truncates the receiver to be @a mask bits long
+ @return a new CHNumber @a r such that @c (r = receiver && (2^(mask+1))-1)
  */
 - (CHNumber *)numberByMaskingWithInteger:(NSUInteger)mask;
 
