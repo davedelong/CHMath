@@ -24,27 +24,28 @@
 @synthesize bigNumber;
 
 + (id)numberWithInteger:(NSInteger)integer {
-	return [[[[self class] alloc] initWithInteger:integer] autorelease];
+	//in class methods, self always refers to the Class object
+	return [[[self alloc] initWithInteger:integer] autorelease];
 }
 
 + (id)numberWithUnsignedInteger:(NSUInteger)integer {
-	return [[[[self class] alloc] initWithUnsignedInteger:integer] autorelease];
+	return [[[self alloc] initWithUnsignedInteger:integer] autorelease];
 }
 
 + (id)numberWithString:(NSString *)string {
-	return [[[[self class] alloc] initWithString:string] autorelease];
+	return [[[self alloc] initWithString:string] autorelease];
 }
 
 + (id)numberWithHexString:(NSString *)string {
-	return [[[[self class] alloc] initWithHexString:string] autorelease];
+	return [[[self alloc] initWithHexString:string] autorelease];
 }
 
 + (id)numberWithNumber:(NSNumber *)number {
-	return [[[[self class] alloc] initWithNumber:number] autorelease];
+	return [[[self alloc] initWithNumber:number] autorelease];
 }
 
 + (id)number {
-	return [[[[self class] alloc] initWithInteger:0] autorelease];
+	return [[[self alloc] initWithInteger:0] autorelease];
 }
 
 - (id) init {
