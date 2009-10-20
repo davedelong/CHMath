@@ -11,7 +11,7 @@
 
 @implementation CHNumber (CHMutableAdditions)
 
-- (CHMutableNumber *) mutableCopy {
+- (CHMutableNumber *) mutableCopyWithZone:(NSZone *)zone {
 	return [[CHMutableNumber alloc] initWithString:[self stringValue]];
 }
 

@@ -17,7 +17,7 @@
 
 @interface CHNumber (CHMutableAdditions)
 
-- (CHMutableNumber *) mutableCopy;
+- (CHMutableNumber *) mutableCopyWithZone:(NSZone *)zone;
 
 @end
 
