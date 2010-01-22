@@ -24,6 +24,15 @@
 	BN_CTX *context;
 }
 
+#pragma mark Convenience Methods
+
+/**
+ Determines if an NSInteger is prime or not.
+ @param integer the integer to test for primality
+ @return @c YES if the parameter is a prime number.
+ */
++ (BOOL) isIntegerPrime:(NSInteger)integer;
+
 #pragma mark Initializers
 
 /**

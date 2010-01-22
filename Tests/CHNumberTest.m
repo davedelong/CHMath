@@ -1,10 +1,13 @@
-//
-//  CHNumberTest.m
-//  CHMath
-//
-//  Created by Dave DeLong on 9/28/09.
-//  Copyright 2009 Home. All rights reserved.
-//
+/*
+ CHMath.framework -- CHNumberTest.m
+ 
+ Copyright (c) 2008-2009, Dave DeLong <http://www.davedelong.com>
+ 
+ Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+ 
+ The software is  provided "as is", without warranty of any kind, including all implied warranties of merchantability and fitness. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+ */
+
 
 #import "CHNumberTest.h"
 
@@ -19,6 +22,10 @@
 }
 
 - (void) test01_construction {
+	CHNumber * t = [CHNumber numberWithString:@"56"];
+	NSString * binaryT = [t binaryStringValue];
+	NSLog(@"Binary value of %@: %@", t, binaryT);
+	
 	CHNumber * n = [CHNumber number];
 	STAssertNotNil(n, @"+[CHNumber number] failed");
 	STAssertTrue([n integerValue] == 0, @"+[CHNumber number] failed (%@)", n);

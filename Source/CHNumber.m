@@ -1,10 +1,13 @@
-//
-//  CHNumber.m
-//  CHMath
-//
-//  Created by Dave DeLong on 9/28/09.
-//  Copyright 2009 Home. All rights reserved.
-//
+/*
+ CHMath.framework -- CHNumber.m
+ 
+ Copyright (c) 2008-2009, Dave DeLong <http://www.davedelong.com>
+ 
+ Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+ 
+ The software is  provided "as is", without warranty of any kind, including all implied warranties of merchantability and fitness. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+ */
+
 
 #import "CHNumber.h"
 #import "CHUtils.h"
@@ -22,6 +25,13 @@
 @implementation CHNumber
 
 @synthesize bigNumber;
+
++ (BOOL) isIntegerPrime:(NSInteger)integer {
+	CHNumber * num = [[CHNumber alloc] initWithInteger:integer];
+	BOOL isPrime = [num isPrime];
+	[num release];
+	return isPrime;
+}
 
 + (id)numberWithInteger:(NSInteger)integer {
 	//in class methods, self always refers to the Class object
@@ -195,7 +205,7 @@
 }
 
 - (NSString *)debugDescription {
-	return [NSString stringWithFormat:@"%@ - %@", [self className], [self stringValue]];
+	return [NSString stringWithFormat:@"<%@ %p> - %@", [self className], self, [self stringValue]];
 }
 
 #pragma mark Comparisons
